@@ -1,6 +1,31 @@
-Dashboard
-<h3>{{ this.testA[0].user.username }}</h3>
-<table>
+
+<form>
+    <label>
+      <input type="radio" name="role" value="manager" (change)="setSelectedRole('manager')">
+      Manager
+    </label>
+    <label>
+      <input type="radio" name="role" value="client" (change)="setSelectedRole('client')">
+      Client
+    </label>
+    <div>
+      <button (click)="goToRegisterComponent()">Register</button>
+      <button (click)="goToLoginComponent()">Login</button>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h3>{{ this.testA[0].user.username }}</h3> -->
+<!-- <table>
     <tbody>
         <tr *ngFor="let user of testA">
             <td>{{user.id}}</td>
@@ -10,4 +35,4 @@ Dashboard
     </tbody>
 </table>
 <!-- <app-login></app-login> -->
-<button (click)="testB()">Dugme</button>
+<!-- <button (click)="testB()">Dugme</button> -->

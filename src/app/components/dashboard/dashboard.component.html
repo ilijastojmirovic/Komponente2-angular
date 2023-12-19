@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>LOGIN</h1>
-</body>
-</html>
+Dashboard
+<h3>{{ this.testA[0].user.username }}</h3>
+<table>
+    <tbody>
+        <tr *ngFor="let user of testA">
+            <td>{{user.id}}</td>
+            <td>{{user.user.username}}</td>
+            <td>{{user.user.email}}</td>
+        </tr>
+    </tbody>
+</table>
+<!-- <app-login></app-login> -->
+<button (click)="testB()">Dugme</button>

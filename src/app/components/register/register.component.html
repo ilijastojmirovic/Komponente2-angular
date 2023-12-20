@@ -1,31 +1,34 @@
-<p>Register Client</p>
 
-<form >
-    <div>
-        <label>First Name:</label>
-        <input type="text" [(ngModel)]="clientCreateDto.userDto.firstName" name="firstName">
-    </div>
-    <div>
-        <label>Last Name:</label>
-        <input type="text" [(ngModel)]="clientCreateDto.userDto.lastName" name="lastName">
-    </div>
-    <div>
-        <label>Username:</label>    
-        <input type="text" [(ngModel)]="clientCreateDto.userDto.username" name="username">
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" [(ngModel)]="clientCreateDto.userDto.password" name="password">
-    </div>
-    <div>
-        <label>Email:</label>
-        <input type="email" [(ngModel)]="clientCreateDto.userDto.email" name="email">
-    </div>
-    <div>
-        <label>Date of Birth:</label>
-        <input type="date" id="dob" name="dob" [(ngModel)]="clientCreateDto.userDto.dateOfBirth">
-    </div>
-    <div>   
-        <button (click)="onRegister()">Register</button>
-    </div>
-</form>
+<main class="container" >
+    <p>Register Client</p>
+    <form >
+        <div>
+            <label>First Name:</label>
+            <input type="text" [(ngModel)]="clientCreateDto.userDto.firstName" name="firstName">
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" [(ngModel)]="clientCreateDto.userDto.lastName" name="lastName">
+        </div>
+        <div>
+            <label>Username:</label>    
+            <input type="text" [(ngModel)]="clientCreateDto.userDto.username" name="username">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" [(ngModel)]="clientCreateDto.userDto.password" name="password">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" [(ngModel)]="clientCreateDto.userDto.email" name="email">
+        </div>
+        <div>
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" name="dob" [(ngModel)]="clientCreateDto.userDto.dateOfBirth">
+        </div>
+        <div>   
+            <button (click)="onRegister()">Register</button>
+            <button (click)="back()">Back</button>
+        </div>
+    </form>
+</main>

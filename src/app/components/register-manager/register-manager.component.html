@@ -1,29 +1,35 @@
-<p>Register Manager</p>
+   
+<main class="container" >
+   <p>Register Manager</p>
 
-<div>
-    <label>First Name:</label>
-    <input type="text">
-</div>
-<div>
-    <label>Last Name:</label>
-    <input type="text">
-</div>
-<div>
-    <label>Username:</label>
-    <input type="text">
-</div>
-<div>
-    <label>Password:</label>
-    <input type="password">
-</div>
-<div>
-    <label>Email:</label>
-    <input type="email">
-</div>
-<div>
-    <label>Date of Birth:</label>
-    <input type="date" id="dob" name="dob">
-</div>
-<div>   
-    <button (click)=null >Register</button>
-</div>
+    <form >
+        <div>
+            <label>First Name:</label>
+            <input type="text" [(ngModel)]="managerCreateDto.userDto.firstName" name="firstName">
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" [(ngModel)]="managerCreateDto.userDto.lastName" name="lastName">
+        </div>
+        <div>
+            <label>Username:</label>    
+            <input type="text" [(ngModel)]="managerCreateDto.userDto.username" name="username">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" [(ngModel)]="managerCreateDto.userDto.password" name="password">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" [(ngModel)]="managerCreateDto.userDto.email" name="email">
+        </div>
+        <div>
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" name="dob" [(ngModel)]="managerCreateDto.userDto.dateOfBirth">
+        </div>
+        <div>   
+            <button (click)="onRegister()">Register</button>
+            <button (click)="back()">Back</button>
+        </div>
+    </form>
+</main>

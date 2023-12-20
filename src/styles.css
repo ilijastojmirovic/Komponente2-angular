@@ -4,7 +4,18 @@ body {
     text-align: center;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    padding: 20px;
+    background: url("../123.png");
+    background-size: cover; /* Ovo će osigurati da slika pokrije ceo ekran */
+}
+
+main.container {
+    display: block;
+    background-color: rgba(219, 197, 150, 0.993);
+    box-shadow: 0px 0px 40px black;
+    border: 0px solid black;
+    margin-top: 150px;
+    width:50%;
+
 }
 
 /* Styles for the form and its elements */
@@ -12,15 +23,19 @@ form div {
     margin-bottom: 10px; /* Adjust this value to increase or decrease the space */
 }
 
+button {
+    margin: 7px;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="date"] {
-    width: 15%;
+    width: 25%;
     padding: 2px;
     margin: 3px 0 5px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     box-sizing: border-box;
 }
 

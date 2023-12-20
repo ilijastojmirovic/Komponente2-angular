@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RegisterClientService } from '../../services/register-client.service';
+import { RegisterClientService } from '../../services/register.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -27,12 +28,14 @@ export class RegisterComponent {
     }
   };
 
-  constructor(private registerService : RegisterClientService){}
+  constructor(private registerService : RegisterClientService, private router: Router){}
 
   onRegister(){
     console.log(32);
     console.log(this.clientCreateDto);
-    this.registerService.register(this.clientCreateDto).subscribe();
+    this.registerService.register_client(this.clientCreateDto).subscribe();
   }
-
+  back(){
+    this.router.navigate(['/']);
+  }
 }

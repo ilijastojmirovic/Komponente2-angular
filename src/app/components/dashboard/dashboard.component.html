@@ -1,4 +1,6 @@
 <main class="container" >
+  <p> Home</p>
+  <p></p>
   <form>
     <label>
       <input type="radio" name="role" value="manager" (change)="setSelectedRole('manager')">
@@ -9,8 +11,11 @@
       Client
     </label>
     <div>
-      <button (click)="goToRegisterComponent()">Register</button>
-      <button (click)="goToLoginComponent()">Login</button>
+      <button (click)="goToRegisterComponent()" class="btn btn-primary">Register</button>
+      <button (click)="goToLoginComponent()" class="btn btn-primary">Login</button>
+    </div>
+    <div>
+      <button (click)="admin()" class="btn btn-dark">admin</button>
     </div>
   </form>
 </main>

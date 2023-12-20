@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
     
   }
   
- 
+  admin(){
+    this.router.navigate(['/admin-home-page']);
+  }
   
   ngOnInit(): void {  
     //this.authservice.test().subscribe((data) => {this.handleData(data)});  

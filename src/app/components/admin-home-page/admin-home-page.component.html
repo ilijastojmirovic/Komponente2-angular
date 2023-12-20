@@ -1,0 +1,91 @@
+
+<main class="container">
+    <p>ADMIN HOME</p>
+    <p></p>
+    <form>
+        <div>
+            <table id="tableE"> 
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Hall Name</th>
+                        <th>Permission</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let manager of managers">
+                        <td>{{ manager.id}}</td>
+                        <td>{{ manager.username }}</td>
+                        <td>{{ manager.email }}</td>
+                        <td>{{ manager.firstName }}</td>
+                        <td>{{ manager.lastName }}</td>
+                        <td>{{ manager.hallName }}</td>
+                        <td>
+                          <!-- Ovde možete dodati akcione dugmiće -->
+                          <button (click)="onPermissionOn()" class="btn btn-success" id="on">On</button>
+                          <button (click)="onPermissionOff()" class="btn btn-danger" id="off">Off</button>
+                        </td>
+                </tbody>
+                
+            </table>
+            <div>
+                <button (click)="showManagers()" class="btn btn-primary">Show Managers</button>
+            </div>
+        </div>
+        <div>
+            <table id="tableE">
+                <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Card Number</th>
+                            <th>nubmerOfTrainings</th>
+                            <th>Permission</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr *ngFor="let user of clients">
+                        <td>{{user.id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.uniqeCardNumber}}</td>
+                        <td>{{user.nubmerOfTrainings}}</td>
+                        <td>
+                            <button (click)="onPermissionOn()" class="btn btn-success" id="on">On</button>
+                            <button (click)="onPermissionOff()" class="btn btn-danger" id="off">Off</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button (click)="showClients()" class="btn btn-primary">Show Clients</button>
+            </div>
+        </div>
+        <div>
+            <button (click)="back()" class="btn btn-dark">Back</button>
+        </div>
+    </form>
+</main>
+<!-- <h3>{{ this.testA[0].user.username }}</h3> -->
+<!-- <table>
+    <tbody>
+        <tr *ngFor="let user of testA">
+            <td>{{user.id}}</td>
+            <td>{{user.user.username}}</td>
+            <td>{{user.user.email}}</td>
+        </tr>
+    </tbody>
+</table>
+<!-- <app-login></app-login> -->
+<!-- <button (click)="testB()">Dugme</button> -->
+
+

@@ -1,3 +1,45 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+/* General Styles */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
 
+/* Styles for the form and its elements */
+form div {
+    margin-bottom: 10px; /* Adjust this value to increase or decrease the space */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+    width: 15%;
+    padding: 2px;
+    margin: 3px 0 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+label {
+    display: block; /* Makes label take the full width and aligns input below */
+    margin-bottom: 2px; /* Space between label and input */
+}
 /* You can add global styles to this file, and also import other style files */

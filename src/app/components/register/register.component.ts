@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   clientCreateDto = {
     id: null,
-    uniqeCardNumber: "1234567890",
+    uniqueCardNumber: "1234567890",
     nubmerOfTrainings: 5,
     userDto: {
       username: "john_doe",

@@ -15,6 +15,10 @@ export class ClientServiceService {
     return this.http.put("/api/client/updatepassword",user);
   }
 
+  saveClientChanges(user : any): Observable<any>{
+    return this.http.put("/api/client/update",user);
+  }
+
  
 
 }

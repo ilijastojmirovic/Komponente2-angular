@@ -30,6 +30,7 @@ export class LoginComponent {
     }
     this.authService.test().subscribe((data) => {
       let clientInfo = data.content[0];
+      console.log(clientInfo);
   
     
       const currentClient: ClientModel = {

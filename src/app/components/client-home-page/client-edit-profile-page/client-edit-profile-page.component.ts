@@ -16,7 +16,7 @@ import { StorageService } from '../../../Storage/storage.service';
 export class ClientEditProfilePageComponent {
 
   updateClientDto = {
-    uniqeCardNumber: "",
+    uniqueCardNumber: "",
     userDto: {
       username: "",
       email: "",
@@ -37,8 +37,9 @@ export class ClientEditProfilePageComponent {
 
   ngOnInit(): void {
     const storedClientData = this.storageService.get('currentClient');
+    console.log(storedClientData);
     if (storedClientData) {
-      this.updateClientDto.uniqeCardNumber = storedClientData.uniqueCardNumber;
+      this.updateClientDto.uniqueCardNumber = storedClientData.uniqueCardNumber;
       
       if (storedClientData.user) {
         this.updateClientDto.userDto.username = storedClientData.user.username;
@@ -73,6 +74,15 @@ export class ClientEditProfilePageComponent {
   }
 
   saveChanges(){
-
+      console.log(this.updateClientDto);
+      this.clientService.saveClientChanges(this.updateClientDto).subscribe();
+      const storedClientData = this.storageService.get('currentClient');
+      storedClientData.uniqueCardNumber = this.updateClientDto.uniqueCardNumber;
+      storedClientData.user.username = this.updateClientDto.userDto.username;
+      storedClientData.user.email = this.updateClientDto.userDto.email;
+      storedClientData.user.firstName = this.updateClientDto.userDto.firstName;
+      storedClientData.user.lastName = this.updateClientDto.userDto.lastName;
+      this.storageService.save('currentClient', storedClientData);
+      
   }
 }

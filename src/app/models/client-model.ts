@@ -8,7 +8,7 @@ export interface UserModel {
 }
 
 export interface ClientModel {
-  id: string; // Ili number, zavisno od vašeg slučaja upotrebe
+  id: number; // Ili number, zavisno od vašeg slučaja upotrebe
   uniqueCardNumber: string;
   numberOfTrainings: number;
   user: UserModel;

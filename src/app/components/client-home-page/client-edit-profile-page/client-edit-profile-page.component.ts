@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientServiceService } from '../../../services/client-service.service';
+import { StorageService } from '../../../Storage/storage.service';
 
 @Component({
   selector: 'app-client-edit-profile-page',
@@ -23,15 +24,20 @@ export class ClientEditProfilePageComponent {
       lastName: "",
     }
   };
-  constructor( private router: Router, private clientService: ClientServiceService){}
+  constructor( private router: Router, private clientService: ClientServiceService,private storageService: StorageService){}
 
   ngOnInit(): void {
-    // this.updateClientDto.uniqeCardNumber = this.clientService.client.uniqeCardNumber;
-    // this.updateClientDto.userDto.username = this.clientService.client.user.username;
-    // this.updateClientDto.userDto.email = this.clientService.client.user.email;
-    // this.updateClientDto.userDto.firstName = this.clientService.client.user.firstName;
-    // this.updateClientDto.userDto.lastName = this.clientService.client.user.lastName;
-    //this.authservice.test().subscribe((data) => {this.handleData(data)});  
+    const storedClientData = this.storageService.get('currentClient');
+    if (storedClientData) {
+      this.updateClientDto.uniqeCardNumber = storedClientData.uniqueCardNumber;
+      
+      if (storedClientData.user) {
+        this.updateClientDto.userDto.username = storedClientData.user.username;
+        this.updateClientDto.userDto.email = storedClientData.user.email;
+        this.updateClientDto.userDto.firstName = storedClientData.user.firstName;
+        this.updateClientDto.userDto.lastName = storedClientData.user.lastName;
+      }
+    }
   }
 
   back(){

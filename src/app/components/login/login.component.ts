@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ClientServiceService } from '../../services/client-service.service';
 import { AuthService } from '../../services/auth.service';
 import { ClientModel } from '../../models/client-model';
+import { StorageService } from '../../Storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ import { ClientModel } from '../../models/client-model';
 })
 export class LoginComponent {
 
-  constructor( private router: Router, private clientService: ClientServiceService, private authService: AuthService){
+
+  constructor( private router: Router, private clientService: ClientServiceService, private authService: AuthService,private storageService: StorageService){
   }
 
   back(){
@@ -24,21 +26,27 @@ export class LoginComponent {
 
   clientLogIn(event?: Event){
     if (event) {
-      event.preventDefault(); // Zaustavljanje osvežavanja stranice
+      event.preventDefault();
     }
     this.authService.test().subscribe((data) => {
       let clientInfo = data.content[0];
-      this.clientService.setClientInStorage(clientInfo);
-      // Sada kada imate podatke, ažurirajte servis
-      // this.clientService.client.uniqeCardNumber = clientInfo.uniqeCardNumber;
-      // this.clientService.client.nubmerOfTrainings = clientInfo.nubmerOfTrainings;
-      // this.clientService.client.user.username = clientInfo.username;
-      // this.clientService.client.user.email = clientInfo.email;
-      // this.clientService.client.user.dateOfBirth = clientInfo.dateOfBirth;
-      // this.clientService.client.user.firstName = clientInfo.firstName;
-      // this.clientService.client.user.lastName = clientInfo.lastName;
-      // this.clientService.client.user.permission = clientInfo.permission;
   
+    
+      const currentClient: ClientModel = {
+        id: clientInfo.id,
+        uniqueCardNumber: clientInfo.uniqueCardNumber,
+        numberOfTrainings: clientInfo.numberOfTrainings,
+        user: {
+          username: clientInfo.username,
+          email: clientInfo.email,
+          dateOfBirth: clientInfo.dateOfBirth, 
+          firstName: clientInfo.firstName, 
+          lastName: clientInfo.lastName,
+          permission: clientInfo.permission 
+        }
+      };
+  
+      this.storageService.save('currentClient', currentClient);
     });
   }
 

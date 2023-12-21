@@ -18,11 +18,30 @@
         <label>Email:</label>
         <input type="email" [(ngModel)]="updateClientDto.userDto.email" name="email">
     </div>
-    
-    
-    <div>
-      <button (click)="back()" class="btn btn-dark">Back</button>
-    </div>
 
   </form>
+
+  <div>
+    <button (click)="saveChanges()" class="btn btn-success">Save</button>
+  </div>
+
+
+  <form>
+    <label>Old Password</label>
+    <input type="password" [(ngModel)]="updatePasswordDto1.oldPassword" name="oldpassword">
+    <label>New Password</label>
+    <input type="password" [(ngModel)]="updatePasswordDto1.password" name="newpassword">
+    <label>Confirm New Password</label>
+    <input type="password" [(ngModel)]="updatePasswordDto1.confirmpassword" name="confrimpassword">
+  </form>
+
+  <div>
+    <button (click)="changePassword()" class="btn btn-success">Confirm</button>
+  </div>
+  <div>
+    <button (click)="back()" class="btn btn-dark">Back</button>
+  </div>
+  <div *ngIf="alert" class="alert alert-danger">
+    Lozinke se ne poklapaju.
+  </div>
 </main>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,11 @@ export class ClientServiceService {
   data : any;
   constructor(private http: HttpClient) {}
 
-  test(){
-    return this.http.get("/api/admin/clients");
+  
+  changePassword(user : any): Observable<any>{
+    return this.http.put("/api/client/updatepassword",user);
   }
 
-  setClientInStorage(clinet: any){
-
-  }
+ 
 
 }

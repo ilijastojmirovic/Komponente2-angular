@@ -24,6 +24,15 @@ export class ClientEditProfilePageComponent {
       lastName: "",
     }
   };
+
+
+  updatePasswordDto1 = {
+    oldPassword: "",
+    password: "",
+    confirmpassword: ""
+  }
+
+
   constructor( private router: Router, private clientService: ClientServiceService,private storageService: StorageService){}
 
   ngOnInit(): void {
@@ -42,5 +51,28 @@ export class ClientEditProfilePageComponent {
 
   back(){
     this.router.navigate(['/client-home-page']);
+  }
+
+  alert = false;
+  changePassword(){
+    const storedClientData = this.storageService.get('currentClient');
+    if(this.updatePasswordDto1.password !== this.updatePasswordDto1.confirmpassword){
+      this.alert = false;
+      this.alert = true;
+      return;
+    }
+
+    const updatePasswordDto = {
+      oldPassword: this.updatePasswordDto1.oldPassword,
+      password: this.updatePasswordDto1.password,
+      email: storedClientData.user.email
+    }
+    console.log(updatePasswordDto);
+      this.clientService.changePassword(updatePasswordDto).subscribe();
+    this.alert = false;
+  }
+
+  saveChanges(){
+
   }
 }

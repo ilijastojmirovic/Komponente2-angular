@@ -5,6 +5,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterManagerComponent } from './components/register-manager/register-manager.component';
 import { AdminHomePageComponent } from './components/admin-home-page/admin-home-page.component';
+import { ClientHomePageComponent } from './components/client-home-page/client-home-page.component';
+import { ManagerHomePageComponent } from './components/manager-home-page/manager-home-page.component';
+import { ClientEditProfilePageComponent } from './components/client-home-page/client-edit-profile-page/client-edit-profile-page.component';
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -12,6 +15,9 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'register-manager', component: RegisterManagerComponent },
   { path: 'admin-home-page', component: AdminHomePageComponent},
+  { path: 'client-home-page', component: ClientHomePageComponent},
+  { path: 'manager-home-page', component: ManagerHomePageComponent},
+  { path: 'client-editProfile-page', component: ClientEditProfilePageComponent},
   // ostale rute...
 ];
 

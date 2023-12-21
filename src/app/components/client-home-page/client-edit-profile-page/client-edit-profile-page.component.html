@@ -1,0 +1,28 @@
+<main class="container" >
+  <p> Client Edit Profile</p>
+  <p></p>
+  <form>
+    <div>
+      <label>First Name:</label>
+      <input type="text" [(ngModel)]="updateClientDto.userDto.firstName" name="firstName">
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" [(ngModel)]="updateClientDto.userDto.lastName" name="lastName">
+    </div>
+    <div>
+        <label>Username:</label>    
+        <input type="text" [(ngModel)]="updateClientDto.userDto.username" name="username">
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="updateClientDto.userDto.email" name="email">
+    </div>
+    
+    
+    <div>
+      <button (click)="back()" class="btn btn-dark">Back</button>
+    </div>
+
+  </form>
+</main>

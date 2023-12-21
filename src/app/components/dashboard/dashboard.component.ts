@@ -25,6 +25,16 @@ export class DashboardComponent implements OnInit {
   admin(){
     this.router.navigate(['/admin-home-page']);
   }
+
+  client(){
+    this.router.navigate(['/client-home-page']);
+  }
+
+  manager(){
+    this.router.navigate(['/manager-home-page']);
+  }
+
+
   
   ngOnInit(): void {  
     //this.authservice.test().subscribe((data) => {this.handleData(data)});  

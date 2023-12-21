@@ -16,4 +16,14 @@ export class UserService {
   showManagers() :  Observable<any> {
     return this.http.get("/api/admin/managers");
   }
+
+  updatePermissionClient(client : any) : Observable<any> {
+   return this.http.put("/api/admin/clientpermission", client);
+  }
+
+  updatePermissionManager(manager : any) : Observable<any> {
+    return this.http.put("/api/admin/managerpermission", manager);
+  }
+
+
 }

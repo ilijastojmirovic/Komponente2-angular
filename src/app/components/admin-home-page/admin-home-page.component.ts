@@ -36,11 +36,23 @@ export class AdminHomePageComponent {
   back(){
     this.router.navigate(['/']);
   }
-  onPermissionOn(){
 
+  managerPermission(permission1 : any, email1: any, username1: any){
+    const updatePermissionDto = {
+      username: username1,
+      email: email1,
+      permission: permission1 
+    }
+    this.userService.updatePermissionManager(updatePermissionDto).subscribe();
   }
-  onPermissionOff(){
 
+  clientPermission(permission1 : any, email1: any, username1: any){
+    const updatePermissionDto = {
+      username: username1,
+      email: email1,
+      permission: permission1 
+    }
+    this.userService.updatePermissionClient(updatePermissionDto).subscribe();
   }
 
 }

@@ -13,6 +13,7 @@ import { ClientServiceService } from '../../../services/client-service.service';
   styleUrl: './client-edit-profile-page.component.css'
 })
 export class ClientEditProfilePageComponent {
+
   updateClientDto = {
     uniqeCardNumber: "",
     userDto: {
@@ -22,17 +23,14 @@ export class ClientEditProfilePageComponent {
       lastName: "",
     }
   };
-
-
   constructor( private router: Router, private clientService: ClientServiceService){}
 
   ngOnInit(): void {
-    console.log(this.clientService.client);
-    this.updateClientDto.uniqeCardNumber = this.clientService.client.uniqeCardNumber;
-    this.updateClientDto.userDto.username = this.clientService.client.user.username;
-    this.updateClientDto.userDto.email = this.clientService.client.user.email;
-    this.updateClientDto.userDto.firstName = this.clientService.client.user.firstName;
-    this.updateClientDto.userDto.lastName = this.clientService.client.user.lastName;
+    // this.updateClientDto.uniqeCardNumber = this.clientService.client.uniqeCardNumber;
+    // this.updateClientDto.userDto.username = this.clientService.client.user.username;
+    // this.updateClientDto.userDto.email = this.clientService.client.user.email;
+    // this.updateClientDto.userDto.firstName = this.clientService.client.user.firstName;
+    // this.updateClientDto.userDto.lastName = this.clientService.client.user.lastName;
     //this.authservice.test().subscribe((data) => {this.handleData(data)});  
   }
 

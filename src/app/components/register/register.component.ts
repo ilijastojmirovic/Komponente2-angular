@@ -13,14 +13,15 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  
   clientCreateDto = {
     id: null,
     uniqueCardNumber: "1234567890",
     nubmerOfTrainings: 5,
     userDto: {
       username: "john_doe",
-      password: "securePassword123",
-      email: "john.doe@example.com",
+      password: "12345",
+      email: "12345@1.1",
       dateOfBirth: "1990-01-01",
       firstName: "John",
       lastName: "Doe",
@@ -31,8 +32,6 @@ export class RegisterComponent {
   constructor(private registerService : RegisterClientService, private router: Router){}
 
   onRegister(){
-    console.log(32);
-    console.log(this.clientCreateDto);
     this.registerService.register_client(this.clientCreateDto).subscribe();
   }
   back(){

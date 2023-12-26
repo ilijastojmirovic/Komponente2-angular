@@ -36,18 +36,12 @@ export class ClientEditProfilePageComponent {
   constructor( private router: Router, private clientService: ClientServiceService,private storageService: StorageService){}
 
   ngOnInit(): void {
-    const storedClientData = this.storageService.get('currentClient');
-    console.log(storedClientData);
-    if (storedClientData) {
-      this.updateClientDto.uniqueCardNumber = storedClientData.uniqueCardNumber;
-      
-      if (storedClientData.user) {
-        this.updateClientDto.userDto.username = storedClientData.user.username;
-        this.updateClientDto.userDto.email = storedClientData.user.email;
-        this.updateClientDto.userDto.firstName = storedClientData.user.firstName;
-        this.updateClientDto.userDto.lastName = storedClientData.user.lastName;
-      }
-    }
+    this.clientService.getClientInfo(this.storageService.get("currentUserToken")).subscribe((data) => {
+      this.updateClientDto.userDto.username = data.username;
+      this.updateClientDto.userDto.email = data.email;
+      this.updateClientDto.userDto.firstName = data.firstName;
+      this.updateClientDto.userDto.lastName = data.lastName;
+    });
   }
 
   back(){
@@ -82,7 +76,6 @@ export class ClientEditProfilePageComponent {
       storedClientData.user.email = this.updateClientDto.userDto.email;
       storedClientData.user.firstName = this.updateClientDto.userDto.firstName;
       storedClientData.user.lastName = this.updateClientDto.userDto.lastName;
-      this.storageService.save('currentClient', storedClientData);
-      
+      this.storageService.save('currentClient', storedClientData);  
   }
 }

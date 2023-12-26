@@ -18,7 +18,8 @@ export class AuthService {
   //   return this.http.get("/api/admin/test");
   // }
 
-  test(): Observable<any>{
-    return this.http.get("/api/admin/clients");
+  test(token: any): Observable<any>{
+    console.log(token);
+    return this.http.post("/api/user/login", token);
   }
 }

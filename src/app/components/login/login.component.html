@@ -2,14 +2,14 @@
     
     <p>LOG IN </p>
     <form >
-        <!-- <div>
-            <label>Password:</label>
-            <input type="password"  name="password">
-        </div>
         <div>
             <label>Email:</label>
-            <input type="email" name="email">
-        </div> -->
+            <input type="email" name="email" [(ngModel)]="loginInfo.email">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password"  name="password" [(ngModel)]="loginInfo.password">
+        </div>
         
     </form>
     <div>   

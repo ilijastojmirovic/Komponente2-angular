@@ -25,7 +25,6 @@ export class ClientEditProfilePageComponent {
     }
   };
 
-
   updatePasswordDto1 = {
     oldPassword: "",
     password: "",
@@ -33,7 +32,7 @@ export class ClientEditProfilePageComponent {
   }
 
 
-  constructor( private router: Router, private clientService: ClientServiceService,private storageService: StorageService){}
+  constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
 
   ngOnInit(): void {
     this.clientService.getClientInfo(this.storageService.get("currentUserToken")).subscribe((data) => {
@@ -44,15 +43,10 @@ export class ClientEditProfilePageComponent {
     });
   }
 
-  back(){
-    this.router.navigate(['/client-home-page']);
-  }
-
   alert = false;
   changePassword(){
-    const storedClientData = this.storageService.get('currentClient');
+    const storedClientData = this.storageService.get('currentUserToken');
     if(this.updatePasswordDto1.password !== this.updatePasswordDto1.confirmpassword){
-      this.alert = false;
       this.alert = true;
       return;
     }
@@ -60,7 +54,7 @@ export class ClientEditProfilePageComponent {
     const updatePasswordDto = {
       oldPassword: this.updatePasswordDto1.oldPassword,
       password: this.updatePasswordDto1.password,
-      email: storedClientData.user.email
+      token: storedClientData
     }
     console.log(updatePasswordDto);
       this.clientService.changePassword(updatePasswordDto).subscribe();
@@ -68,7 +62,6 @@ export class ClientEditProfilePageComponent {
   }
 
   saveChanges(){
-      console.log(this.updateClientDto);
       this.clientService.saveClientChanges(this.updateClientDto).subscribe();
       const storedClientData = this.storageService.get('currentClient');
       storedClientData.uniqueCardNumber = this.updateClientDto.uniqueCardNumber;
@@ -78,4 +71,10 @@ export class ClientEditProfilePageComponent {
       storedClientData.user.lastName = this.updateClientDto.userDto.lastName;
       this.storageService.save('currentClient', storedClientData);  
   }
+
+  back(){
+    this.router.navigate(['/client-home-page']);
+  }
+
+
 }

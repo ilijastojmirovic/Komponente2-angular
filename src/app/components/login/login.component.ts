@@ -27,9 +27,20 @@ export class LoginComponent {
     if (event) {
       event.preventDefault();
     }
-    this.authService.test(this.loginInfo).subscribe((data) => {
+    this.authService.login(this.loginInfo).subscribe((data) => {
       this.storageService.save('currentUserToken', data.token);
+      this.goToClientPage();
     });
+  }
+
+  goToClientPage(){
+    this.router.navigate(["/client-home-page"]);
+  }
+  goToManagerPage(){
+    this.router.navigate(["/manager-home-page"]);
+  }
+  goToAdminPage(){
+    this.router.navigate(["/admin-home-page"]);
   }
   
   back(){
@@ -38,19 +49,4 @@ export class LoginComponent {
 
 }
 
-
-    
-      // const currentClient: ClientModel = {
-      //   id: clientInfo.id,
-      //   uniqueCardNumber: clientInfo.uniqueCardNumber,
-      //   numberOfTrainings: clientInfo.numberOfTrainings,
-      //   user: {
-      //     username: clientInfo.username,
-      //     email: clientInfo.email,
-      //     dateOfBirth: clientInfo.dateOfBirth, 
-      //     firstName: clientInfo.firstName, 
-      //     lastName: clientInfo.lastName,
-      //     permission: clientInfo.permission 
-      //   }
-      // };
   

@@ -10,16 +10,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // login(credentials: {username: string, password: string}): Observable<any> {
-  //   return this.http.post(`/api/admin/login`, credentials);
-  // }
 
-  // test() {
-  //   return this.http.get("/api/admin/test");
-  // }
-
-  test(token: any): Observable<any>{
-    console.log(token);
-    return this.http.post("/api/user/login", token);
+  login(loginInfo: any): Observable<any>{
+    return this.http.post("/api/user/login", loginInfo);
   }
 }

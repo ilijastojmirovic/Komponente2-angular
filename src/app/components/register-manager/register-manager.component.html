@@ -31,5 +31,8 @@
             <button (click)="onRegister()" class="btn btn-success">Register</button>
             <button (click)="back()" class="btn btn-dark">Back</button>
         </div>
+        <div *ngIf="alert" class="alert alert-danger">
+            This user is already registered.
+        </div>
     </form>
 </main>

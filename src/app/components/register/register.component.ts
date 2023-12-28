@@ -29,10 +29,21 @@ export class RegisterComponent {
     }
   };
 
+  alert = false;
+
   constructor(private registerService : RegisterClientService, private router: Router){}
 
   onRegister(){
-    this.registerService.register_client(this.clientCreateDto).subscribe();
+     this.registerService.register_client(this.clientCreateDto).subscribe({
+      next: (result) => {
+        this.alert = false;
+        console.log(result);
+      },
+      error: (error) => {
+        this.alert = true;
+        console.log("Vec postoji");
+      }
+    });
   }
   back(){
     this.router.navigate(['/']);

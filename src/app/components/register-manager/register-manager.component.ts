@@ -28,11 +28,22 @@ export class RegisterManagerComponent {
     }
   };
 
+  alert = false;
+
   constructor(private registerService : RegisterClientService, private rute: Router){}
 
   onRegister(){
     console.log(this.managerCreateDto);
-    this.registerService.register_manager(this.managerCreateDto).subscribe();
+    this.registerService.register_manager(this.managerCreateDto).subscribe({
+      next: (result) => {
+        this.alert = false;
+        console.log(result);
+      },
+      error: (error) => {
+        this.alert = true;
+        console.log("Vec postoji");
+      }
+    });
   }
   
   back(){

@@ -35,12 +35,12 @@ export class ClientEditProfilePageComponent {
   constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
 
   ngOnInit(): void {
-    this.clientService.getClientInfo(this.storageService.get("currentUserToken")).subscribe((data) => {
+      const data = this.storageService.get('decodedCurrentUser');
+      this.updateClientDto.uniqueCardNumber = data.uniqueCardNumber;
       this.updateClientDto.userDto.username = data.username;
       this.updateClientDto.userDto.email = data.email;
       this.updateClientDto.userDto.firstName = data.firstName;
       this.updateClientDto.userDto.lastName = data.lastName;
-    });
   }
 
   alert = false;
@@ -63,13 +63,13 @@ export class ClientEditProfilePageComponent {
 
   saveChanges(){
       this.clientService.saveClientChanges(this.updateClientDto).subscribe();
-      const storedClientData = this.storageService.get('currentClient');
-      storedClientData.uniqueCardNumber = this.updateClientDto.uniqueCardNumber;
-      storedClientData.user.username = this.updateClientDto.userDto.username;
-      storedClientData.user.email = this.updateClientDto.userDto.email;
-      storedClientData.user.firstName = this.updateClientDto.userDto.firstName;
-      storedClientData.user.lastName = this.updateClientDto.userDto.lastName;
-      this.storageService.save('currentClient', storedClientData);  
+      const storedClientData = this.storageService.get('decodedCurrentUser');
+      storedClientData.username = this.updateClientDto.userDto.username;
+      storedClientData.email = this.updateClientDto.userDto.email;
+      storedClientData.firstName = this.updateClientDto.userDto.firstName;
+      storedClientData.lastName = this.updateClientDto.userDto.lastName;
+      this.storageService.save('decodedCurrentUser', storedClientData);
+      console.log(this.storageService.get('decodedCurrentUser'));  
   }
 
   back(){

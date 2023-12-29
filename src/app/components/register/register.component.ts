@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RegisterClientService } from '../../services/register.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers : [RegisterClientService],
+  providers : [AuthService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -31,10 +31,10 @@ export class RegisterComponent {
 
   alert = false;
 
-  constructor(private registerService : RegisterClientService, private router: Router){}
+  constructor(private authService : AuthService, private router: Router){}
 
   onRegister(){
-     this.registerService.register_client(this.clientCreateDto).subscribe({
+     this.authService.register_client(this.clientCreateDto).subscribe({
       next: (result) => {
         this.alert = false;
         console.log(result);

@@ -25,5 +25,8 @@ export class UserService {
     return this.http.put("/api/admin/managerpermission", manager);
   }
 
+  getNotifications(): Observable<any> {
+    return this.http.get("/api2/notification/allNotifications");
+  }
 
 }

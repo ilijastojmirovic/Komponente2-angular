@@ -11,8 +11,7 @@ export class ClientServiceService {
 
   
   showNotifications(username: string): Observable<any> {
-    console.log("api2/");
-    return this.http.get(`/ser/notification/${username}`);
+    return this.http.get(`/api2/notification/${username}`);
   }
 
   changePassword(user : any): Observable<any>{

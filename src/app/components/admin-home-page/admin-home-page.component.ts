@@ -16,8 +16,17 @@ export class AdminHomePageComponent {
 
   clients: any;
   managers: any;
+  notification: any;
 
   constructor(private  userService: UserService, private router: Router){}
+
+  showNotifications(){
+    this.userService.getNotifications().subscribe((data) => {
+      console.log(data);
+      this.notification = data.content;
+    })
+  }
+
 
   showClients(){
     this.userService.showClients().subscribe((data) => {
@@ -29,10 +38,6 @@ export class AdminHomePageComponent {
     this.userService.showManagers().subscribe((data) => {
       this.managers = data.content;
     });  
-  }
-
-  back(){
-    this.router.navigate(['/']);
   }
 
   managerPermission(permission1 : any, email1: any, username1: any){
@@ -51,6 +56,10 @@ export class AdminHomePageComponent {
       permission: permission1 
     }
     this.userService.updatePermissionClient(updatePermissionDto).subscribe();
+  }
+
+  back(){
+    this.router.navigate(['/']);
   }
 
 }

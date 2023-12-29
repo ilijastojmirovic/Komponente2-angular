@@ -23,7 +23,6 @@ export class ClientHomePageComponent {
 
   showNotifications(){
     const user = this.storageService.get('decodedCurrentUser');
-    console.log("dsadas321321");
     this.clientService.showNotifications(user.username).subscribe((data) => {
       this.notifications = data;
     });

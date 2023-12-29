@@ -23,4 +23,12 @@ export class AuthService {
       })
     );
   }
+  
+  register_client(user: any){
+    return this.http.post('/api/client', user);
+  }
+  
+  register_manager(user: any){
+    return this.http.post('/api/manager', user);
+  }
 }

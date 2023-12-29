@@ -71,21 +71,39 @@
             </div>
         </div>
         <div>
+            <table id="tableE"> 
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Link</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let notification of notification">
+                      <td>{{notification.id}}</td>
+                      <td>{{notification.username}}</td>
+                      <td>{{notification.firstName}}</td>
+                      <td>{{notification.lastName}}</td>
+                      <td>{{notification.email}}</td>
+                      <td>{{notification.link}}</td>
+                      <td>{{notification.notificationType}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button (click)="showNotifications()" class="btn btn-primary">Show Notifications</button>
+            </div>
+        </div>
+        <div>
             <button (click)="back()" class="btn btn-dark">Back</button>
         </div>
+        
     </form>
 </main>
-<!-- <h3>{{ this.testA[0].user.username }}</h3> -->
-<!-- <table>
-    <tbody>
-        <tr *ngFor="let user of testA">
-            <td>{{user.id}}</td>
-            <td>{{user.user.username}}</td>
-            <td>{{user.user.email}}</td>
-        </tr>
-    </tbody>
-</table>
-<!-- <app-login></app-login> -->
-<!-- <button (click)="testB()">Dugme</button> -->
 
 

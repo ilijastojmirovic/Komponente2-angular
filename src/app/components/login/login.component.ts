@@ -5,30 +5,13 @@ import { ClientServiceService } from '../../services/client-service.service';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { StorageService } from '../../Storage/storage.service';
-import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
-@Injectable({
-  providedIn: 'root'
-})
-export class MyJwtOptions {
-  getToken(): string | null {
-    // Ovde implementirajte logiku za dobijanje tokena ako je potrebno
-    return localStorage.getItem('currentUserToken');
-  }
-}
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers: [ClientServiceService, AuthService, JwtHelperService,
-    { 
-      provide: JWT_OPTIONS, 
-      useFactory: (myJwtOptions: MyJwtOptions) => {
-        return { tokenGetter: myJwtOptions.getToken };
-      },
-      deps: [MyJwtOptions]
-    }], 
+  providers: [ClientServiceService, AuthService], 
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -39,8 +22,8 @@ export class LoginComponent {
     password : ""
   };
   
-  constructor( private router: Router, private clientService: ClientServiceService, private authService: AuthService,
-    private storageService: StorageService, private jwtHelper: JwtHelperService){}
+  constructor( private router: Router, private authService: AuthService,
+    private storageService: StorageService){}
 
   
 

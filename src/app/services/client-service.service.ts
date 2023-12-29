@@ -10,7 +10,11 @@ export class ClientServiceService {
   constructor(private http: HttpClient) {}
 
   
-  
+  showNotifications(username: string): Observable<any> {
+    console.log("api2/");
+    return this.http.get(`/ser/notification/${username}`);
+  }
+
   changePassword(user : any): Observable<any>{
     return this.http.put("/api/client/updatepassword", user);
   }

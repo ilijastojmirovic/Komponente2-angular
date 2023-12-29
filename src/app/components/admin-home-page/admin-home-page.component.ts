@@ -22,14 +22,12 @@ export class AdminHomePageComponent {
   showClients(){
     this.userService.showClients().subscribe((data) => {
       this.clients = data.content;
-      console.log(this.clients);
     });
   }
 
   showManagers(){
     this.userService.showManagers().subscribe((data) => {
       this.managers = data.content;
-        console.log(this.managers);
     });  
   }
 

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientServiceService } from '../../services/client-service.service';
+import { StorageService } from '../../Storage/storage.service';
 
 @Component({
   selector: 'app-client-home-page',
@@ -13,13 +14,25 @@ import { ClientServiceService } from '../../services/client-service.service';
   styleUrl: './client-home-page.component.css'
 })
 export class ClientHomePageComponent {
-  constructor( private router: Router, private client: ClientServiceService){}
+
+  notifications: any;
+
+
+  constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
+  
+
+  showNotifications(){
+    const user = this.storageService.get('decodedCurrentUser');
+    console.log("dsadas321321");
+    this.clientService.showNotifications(user.username).subscribe((data) => {
+      this.notifications = data;
+    });
+  }
+  editProfile(){
+    this.router.navigate(['/client-editProfile-page']);
+  }
 
   back(){
     this.router.navigate(['/']);
-  }
-
-  editProfile(){
-    this.router.navigate(['/client-editProfile-page']);
   }
 }

@@ -2,9 +2,38 @@
   <p> Client</p>
   <p></p>
   <form>
-
+    <div class="flex-container">
+      <button (click)="editProfile()" class="btn btn-success">Edit profile</button>
+    </div>
     <div>
-      <button (click)="editProfile()" class="btn btn-primary">Edit profile</button>
+      <label id="Subject">Notifications</label> 
+    </div>
+    <table>
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Link</th>
+              <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notification of notifications">
+            <td>{{notification.id}}</td>
+            <td>{{notification.username}}</td>
+            <td>{{notification.firstName}}</td>
+            <td>{{notification.lastName}}</td>
+            <td>{{notification.email}}</td>
+            <td>{{notification.link}}</td>
+            <td>{{notification.notificationType}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <div>
+      <button (click)="showNotifications()" class="btn btn-primary">Show Notifications</button>
     </div>
     
     <div>

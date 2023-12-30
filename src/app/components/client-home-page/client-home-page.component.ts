@@ -34,4 +34,8 @@ export class ClientHomePageComponent {
   back(){
     this.router.navigate(['/']);
   }
+
+  toSchedule(){
+    this.router.navigate(['/booking']);
+  }
 }

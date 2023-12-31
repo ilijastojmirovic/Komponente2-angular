@@ -1,0 +1,67 @@
+<main class="container" >
+  <p>Schedule a training</p>
+  <form>
+    <div class="flex-container">
+    <select class="form-select" [(ngModel)]="category" name="category">
+      <option value="ignore">Category</option>
+      <option value="pilates">Pilates</option>
+      <option value="powerlifting">Powerlifting</option>
+      <option value="calistenics">Calistenics</option>
+      <option value="joga">Yoga</option>
+    </select>
+    <select class="form-select" [(ngModel)]="day" name="day">
+      <option value="ignore">Day of week</option>
+      <option value="monday">Monday</option>
+      <option value="tuesday">Tuesday</option>
+      <option value="wednesday">Wednesday</option>
+      <option value="thursday">Thursday</option>
+      <option value="friday">Friday</option>
+      <option value="saturday">Saturday</option>
+      <option value="sunday">Sunday</option>
+    </select>
+    <select class="form-select" [(ngModel)]="type" name="type">
+      <option value="ignore">Type</option>
+      <option value="individual">Individual</option>
+      <option value="group">Group</option>
+    </select>
+      <button (click)="filter()" class="btn btn-primary">Filter</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hall</th>
+            <th>Hall description</th>
+            <th>Training category</th>
+            <th>Training type</th>
+            <th>Time</th>
+            <th>Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{appointment.id}}</td>
+          <td>{{appointment.hall}}</td>
+          <td>{{appointment.hallDescription}}</td>
+          <td>{{appointment.trainingCategory}}</td>
+          <td>{{appointment.trainingType}}</td>
+          <td>{{appointment.startTime}}</td>
+          <td>{{appointment.day}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div></div>
+    <div>
+      <label for="">Enter the training ID you want to schedule</label>
+      <input type="text" [(ngModel)]="appointmentID" name="appointmentID">
+      <button (click)="getID()" class="btn btn-primary">Accept</button>
+    </div>
+
+
+    <div>
+      <button (click)="back()" class="btn btn-dark">Back</button>
+    </div>
+
+
+  </form>
+</main>

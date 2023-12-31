@@ -16,10 +16,13 @@ import { StorageService } from '../../Storage/storage.service';
 export class ClientHomePageComponent {
 
   notifications: any;
-
+  bill: number = 0;
 
   constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
   
+  ngOnInit(): void {
+    this.bill = this.storageService.get('clientBill');
+  }
 
   showNotifications(){
     const user = this.storageService.get('decodedCurrentUser');

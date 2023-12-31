@@ -1,0 +1,48 @@
+container {
+  width: 1000px;
+}
+table{
+  width: 100%;
+}
+thead {
+  margin: 5px;
+}
+th, td {
+  background-color: rgba(192, 209, 228, 0.452);
+  text-align: left;
+  border: 2px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: middle;
+}
+#Subject{
+  font-weight: bold;
+  font-size: 25px;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+#billLabel{
+  font-weight: bold;
+}
+select {
+  width: 12%; /* Postavlja širinu select elementu na 50% širine roditeljskog elementa */
+  padding: 4px;
+  margin: 2px;
+}
+
+button{
+  
+  border: none; /* Nema ivice */
+  color: white; /* Bela boja teksta */
+  padding: 6px 16px; /* Padding: gore-dole 15px, levo-desno 32px */
+  text-align: center; /* Tekst centriran */
+  text-decoration: none; /* Nema dekoracije teksta */
+  display: inline-block; /* Dugme će biti inline element ali sa mogućnošću postavljanja širine i visine */
+  font-size: 16px; /* Veličina fonta */
+  margin: 4px 2px; /* Margin oko dugmadi */
+  cursor: pointer; /* Kursor u obliku pokazivača kad je iznad dugmeta */
+  border-radius: 4px; /* Blago zaobljeni uglovi */
+}

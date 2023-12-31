@@ -3,6 +3,11 @@ localhost:8080/api/h2-console
 localhost:8080/api/swagger-ui/index.html
 
 
+Servis 2
+localhost:8082/api/h2-console
+localhost:8082/api/swagger-ui/index.html
+
+
 Servis 3
 localhost:8081/api/h2-console
 localhost:8081/api/swagger-ui/index.html

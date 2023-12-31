@@ -8,7 +8,8 @@ import { AdminHomePageComponent } from './components/admin-home-page/admin-home-
 import { ClientHomePageComponent } from './components/client-home-page/client-home-page.component';
 import { ManagerHomePageComponent } from './components/manager-home-page/manager-home-page.component';
 import { ClientEditProfilePageComponent } from './components/client-home-page/client-edit-profile-page/client-edit-profile-page.component';
-import { BookingComponent } from './components/booking/booking.component';
+import { BookingComponent } from './components/client-home-page/booking/booking.component';
+
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },

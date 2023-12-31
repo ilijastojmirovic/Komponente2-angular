@@ -26,8 +26,12 @@ export class ClientServiceService {
     return this.http.get(`/api3/appointments`);
   }
 
-  scheduleTraining(appointmentID: any): Observable<any> {
-    return this.http.get("");
+  scheduleTraining(appointment: any): Observable<any> {
+    return this.http.put("/api3/appointments/updateClientTrainings", appointment);
+  }
+
+  filterAppointments(filter: any): Observable<any> {
+    return this.http.get("/api3/appointments/filter", filter);
   }
 
 }

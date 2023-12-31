@@ -20,7 +20,7 @@ export class RegisterManagerComponent {
     startDate: "1000-02-03",
     userDto: {
       username: "john_doe",
-      password: "securePassword123",
+      password: "12345",
       email: "john.doe@example.com",
       dateOfBirth: "1990-01-01",
       firstName: "John",

@@ -1,11 +1,11 @@
 <main class="container" >
   <p> Manager</p>
   <p></p>
-  <form>
-    
-    <div>
-      <button (click)="back()" class="btn btn-dark">Back</button>
-    </div>
-
-  </form>
+  <div class="flex-container">
+    <button (click)="newTraining()" class="btn btn-success">New Training</button>
+    <button (click)="editHall()" class="btn btn-success">Edit Hall</button>
+  </div>
+  <div>
+    <button (click)="back()" class="btn btn-dark">Back</button>
+  </div>
 </main>

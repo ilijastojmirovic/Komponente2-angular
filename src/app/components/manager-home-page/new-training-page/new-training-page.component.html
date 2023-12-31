@@ -1,0 +1,20 @@
+<main class="container" >
+    <p> Manager</p>
+    <p></p>
+    <div>
+        <label>Category:</label>
+        <select class="form-select" [(ngModel)]="category" name="category">
+            <option value="ignore">Category</option>
+            <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
+          </select>
+        <label>Time:</label>
+        <input type="text"  name="lastName">
+        <label>Day:</label>    
+        <input type="text"  name="username">
+    </div>
+    <div>
+        <button (click)="addNewTraining()" class="btn btn-primary">Add</button>
+        <button (click)="back()" class="btn btn-dark">Back</button>
+    </div>
+  </main>
+  

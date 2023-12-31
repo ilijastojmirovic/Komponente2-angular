@@ -1,0 +1,18 @@
+.container {
+width: 1000px;
+}
+
+select {
+width: 12%;
+padding: 4px;
+margin: 2px;
+}
+
+body {
+    display: flex;
+    text-align: center;
+    justify-content: center; /* horizontalno centriranje */
+    align-items: center; /* vertikalno centriranje */
+    height: 100vh; /* visina viewport-a */
+    margin: 0; /* uklanja defaultni margin */
+}

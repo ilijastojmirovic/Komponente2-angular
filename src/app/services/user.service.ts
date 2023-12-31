@@ -29,4 +29,8 @@ export class UserService {
     return this.http.get("/api2/notification/allNotifications");
   }
 
+  getCategory(): Observable<any> {
+    return this.http.get("/api3/category/getCategory");
+  }
+  
 }

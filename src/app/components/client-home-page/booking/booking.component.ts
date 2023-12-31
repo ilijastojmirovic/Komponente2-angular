@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientServiceService } from '../../../services/client-service.service';
 import { StorageService } from '../../../Storage/storage.service';
+import { UserService } from '../../../services/user.service';
 
 
 @Component({
   selector: 'app-booking',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers: [ClientServiceService],
+  providers: [ClientServiceService, UserService],
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.css'
 })
@@ -25,14 +26,14 @@ export class BookingComponent {
   type : string = 'ignore';
   categorys: any;
 
-  constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
+  constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService, private userService: UserService){}
 
   ngOnInit(): void {
     this.clientService.showAppointments().subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);
     });
-    this.clientService.getCategory().subscribe((data) => {
+    this.userService.getCategory().subscribe((data) => {
       this.categorys = data;
     });
   }

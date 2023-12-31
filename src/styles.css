@@ -14,10 +14,6 @@ main.container {
     margin-top: 150px;
 }
 
-form div {
-    margin-bottom: 10px; 
-}
-
 button {
     margin: 7px;
 }
@@ -52,4 +48,24 @@ label {
     display: block; /* Makes label take the full width and aligns input below */
     margin-bottom: 2px; /* Space between label and input */
 }
-/* You can add global styles to this file, and also import other style files */
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+#billLabel{
+    font-weight: bold;
+}
+button{
+  border: none; /* Nema ivice */
+  color: white; /* Bela boja teksta */
+  padding: 6px 16px; /* Padding: gore-dole 15px, levo-desno 32px */
+  text-align: center; /* Tekst centriran */
+  text-decoration: none; /* Nema dekoracije teksta */
+  display: inline-block; /* Dugme će biti inline element ali sa mogućnošću postavljanja širine i visine */
+  font-size: 16px; /* Veličina fonta */
+  margin: 4px 2px; /* Margin oko dugmadi */
+  cursor: pointer; /* Kursor u obliku pokazivača kad je iznad dugmeta */
+  border-radius: 4px; /* Blago zaobljeni uglovi */
+}

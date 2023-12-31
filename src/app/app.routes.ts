@@ -9,6 +9,8 @@ import { ClientHomePageComponent } from './components/client-home-page/client-ho
 import { ManagerHomePageComponent } from './components/manager-home-page/manager-home-page.component';
 import { ClientEditProfilePageComponent } from './components/client-home-page/client-edit-profile-page/client-edit-profile-page.component';
 import { BookingComponent } from './components/client-home-page/booking/booking.component';
+import { HallEditPageComponent } from './components/manager-home-page/hall-edit-page/hall-edit-page.component';
+import { NewTrainingPageComponent } from './components/manager-home-page/new-training-page/new-training-page.component';
 
 
 export const routes: Routes = [
@@ -21,6 +23,8 @@ export const routes: Routes = [
   { path: 'manager-home-page', component: ManagerHomePageComponent},
   { path: 'client-editProfile-page', component: ClientEditProfilePageComponent},
   { path: 'booking', component: BookingComponent},
+  { path: 'editHall-page', component: HallEditPageComponent},
+  { path: 'newTraining-page', component: NewTrainingPageComponent},
   // ostale rute...
 ];
 

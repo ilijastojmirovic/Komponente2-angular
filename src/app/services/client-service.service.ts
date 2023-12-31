@@ -31,7 +31,7 @@ export class ClientServiceService {
   }
 
   filterAppointments(filter: any): Observable<any> {
-    return this.http.get("/api3/appointments/filter", filter);
+    return this.http.post("/api3/appointments/filter", filter);
   }
 
 }

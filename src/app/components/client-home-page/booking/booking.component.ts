@@ -41,6 +41,7 @@ export class BookingComponent {
     };
     console.log(filter);
     this.clientService.filterAppointments(filter).subscribe((data) => {
+      console.log(data);
       this.appointments = data;
       this.sortByHall(this.appointments);
     });

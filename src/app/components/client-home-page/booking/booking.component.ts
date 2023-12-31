@@ -18,11 +18,12 @@ export class BookingComponent {
 
   bill = 0
   appointments : any;
-  appointmentID =  "0";
+  appointmentID =  " ";
 
   category: string = 'ignore';
   day: string = 'ignore';
   type : string = 'ignore';
+  categorys: any;
 
   constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService){}
 
@@ -30,6 +31,9 @@ export class BookingComponent {
     this.clientService.showAppointments().subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);
+    });
+    this.clientService.getCategory().subscribe((data) => {
+      this.categorys = data;
     });
   }
  
@@ -41,7 +45,6 @@ export class BookingComponent {
     };
     console.log(filter);
     this.clientService.filterAppointments(filter).subscribe((data) => {
-      console.log(data);
       this.appointments = data;
       this.sortByHall(this.appointments);
     });

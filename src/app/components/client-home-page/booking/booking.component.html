@@ -4,10 +4,7 @@
     <div class="flex-container">
     <select class="form-select" [(ngModel)]="category" name="category">
       <option value="ignore">Category</option>
-      <option value="pilates">Pilates</option>
-      <option value="powerlifting">Powerlifting</option>
-      <option value="calistenics">Calistenics</option>
-      <option value="joga">Yoga</option>
+      <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
     </select>
     <select class="form-select" [(ngModel)]="day" name="day">
       <option value="ignore">Day of week</option>
@@ -41,18 +38,18 @@
       <tbody>
         <tr *ngFor="let appointment of appointments">
           <td>{{appointment.id}}</td>
-          <td>{{appointment.hall}}</td>
-          <td>{{appointment.hallDescription}}</td>
-          <td>{{appointment.trainingCategory}}</td>
-          <td>{{appointment.trainingType}}</td>
-          <td>{{appointment.startTime}}</td>
-          <td>{{appointment.day}}</td>
+          <td>{{appointment.hall | titlecase}}</td>
+          <td>{{appointment.hallDescription  | titlecase}}</td>
+          <td>{{appointment.trainingCategory | titlecase}}</td>
+          <td>{{appointment.trainingType | titlecase}}</td>
+          <td>{{appointment.startTime | titlecase}}</td>
+          <td>{{appointment.day | titlecase}}</td>
         </tr>
       </tbody>
     </table>
     <div></div>
     <div>
-      <label for="">Enter the training ID you want to schedule</label>
+      <label for="" style="font-weight: bold;">Enter the training ID you want to schedule</label>
       <input type="text" [(ngModel)]="appointmentID" name="appointmentID">
       <button (click)="getID()" class="btn btn-primary">Accept</button>
     </div>

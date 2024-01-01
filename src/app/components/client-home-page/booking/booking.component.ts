@@ -29,7 +29,8 @@ export class BookingComponent {
   constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService, private userService: UserService){}
 
   ngOnInit(): void {
-    this.clientService.showAppointments().subscribe((data) => {
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    this.clientService.showAppointments(decodedToken.id).subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);
     });
@@ -51,15 +52,28 @@ export class BookingComponent {
     });
   }
 
-  getID() {
+  accept() {
     if(this.appointmentID == "0"){
         return ;
     }
     for (let appointment of this.appointments){
         if (appointment.id == this.appointmentID) {
-            this.clientService.scheduleTraining(appointment).subscribe( data =>{
+          const decodedToken = this.storageService.get('decodedCurrentUser');
+          let body = {
+            clientId: decodedToken.id,
+            appointmentId: this.appointmentID,
+            firstName: decodedToken.firstName,
+            lastName: decodedToken.lastName,
+            email: decodedToken.email,
+            username: decodedToken.username
+          };
+          console.log(body);
+            this.clientService.scheduleTraining(body).subscribe( data =>{
+              console.log(data);
               this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
             });
+            
+            this.router.navigate(['/client-home-page']);
             return;
         }
     }

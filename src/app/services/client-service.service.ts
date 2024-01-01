@@ -19,15 +19,16 @@ export class ClientServiceService {
   }
 
   showNotifications(username: string): Observable<any> {
+    console.log(username);
     return this.http.get(`/api2/notification/${username}`);
   }
 
-  showAppointments(): Observable<any> {
-    return this.http.get(`/api3/appointments`);
+  showAppointments(clientId: any): Observable<any> {
+    return this.http.post(`/api3/appointments/all`, clientId);
   }
 
-  scheduleTraining(appointment: any): Observable<any> {
-    return this.http.put("/api3/appointments/updateClientTrainings", appointment);
+  scheduleTraining(clientAppointmentDto: any): Observable<any> {
+    return this.http.put("/api3/appointments/updateClientTrainings", clientAppointmentDto);
   }
 
   filterAppointments(filter: any): Observable<any> {

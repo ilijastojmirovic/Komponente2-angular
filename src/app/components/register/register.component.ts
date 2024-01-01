@@ -17,7 +17,7 @@ export class RegisterComponent {
   clientCreateDto = {
     id: null,
     uniqueCardNumber: "1234567890",
-    nubmerOfTrainings: 5,
+    nubmerOfTrainings: 0,
     userDto: {
       username: "john_doe",
       password: "12345",
@@ -37,7 +37,7 @@ export class RegisterComponent {
      this.authService.register_client(this.clientCreateDto).subscribe({
       next: (result) => {
         this.alert = false;
-        console.log(result);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.alert = true;

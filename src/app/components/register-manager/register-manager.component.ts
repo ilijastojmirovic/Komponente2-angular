@@ -31,14 +31,14 @@ export class RegisterManagerComponent {
 
   alert = false;
 
-  constructor(private authService : AuthService, private rute: Router){}
+  constructor(private authService : AuthService, private router: Router){}
 
   onRegister(){
     console.log(this.managerCreateDto);
     this.authService.register_manager(this.managerCreateDto).subscribe({
       next: (result) => {
         this.alert = false;
-        console.log(result);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.alert = true;
@@ -48,7 +48,7 @@ export class RegisterManagerComponent {
   }
   
   back(){
-    this.rute.navigate(['/']);
+    this.router.navigate(['/']);
   }
 
 

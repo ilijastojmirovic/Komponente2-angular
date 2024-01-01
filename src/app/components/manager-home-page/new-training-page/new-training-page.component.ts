@@ -22,6 +22,9 @@ export class NewTrainingPageComponent {
   category: string = 'ignore';
   categorys: any;
 
+  time: any;
+  day: any;
+
   ngOnInit(): void {
     this.userService.getCategory().subscribe((data) => {
       this.categorys = data;

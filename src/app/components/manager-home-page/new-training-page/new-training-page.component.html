@@ -8,9 +8,9 @@
             <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
           </select>
         <label>Time:</label>
-        <input type="text"  name="lastName">
+        <input type="text" [(ngModel)]="time" name="time">
         <label>Day:</label>    
-        <input type="text"  name="username">
+        <input type="text" [(ngModel)]="day" name="day">
     </div>
     <div>
         <button (click)="addNewTraining()" class="btn btn-primary">Add</button>

@@ -11,6 +11,7 @@ import { ClientEditProfilePageComponent } from './components/client-home-page/cl
 import { BookingComponent } from './components/client-home-page/booking/booking.component';
 import { HallEditPageComponent } from './components/manager-home-page/hall-edit-page/hall-edit-page.component';
 import { NewTrainingPageComponent } from './components/manager-home-page/new-training-page/new-training-page.component';
+import { ClientTrainingsComponent } from './components/client-home-page/client-trainings/client-trainings.component';
 
 
 export const routes: Routes = [
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'booking', component: BookingComponent},
   { path: 'editHall-page', component: HallEditPageComponent},
   { path: 'newTraining-page', component: NewTrainingPageComponent},
+  { path: 'myTrainings-page', component: ClientTrainingsComponent},
   // ostale rute...
 ];
 
@@ -32,4 +34,5 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

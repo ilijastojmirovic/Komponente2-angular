@@ -30,7 +30,8 @@ export class BookingComponent {
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    this.clientService.showAppointments(decodedToken.id).subscribe((data) => {
+    const userid = decodedToken.id;
+    this.clientService.showAppointments(userid).subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);
     });
@@ -40,10 +41,13 @@ export class BookingComponent {
   }
  
   filter(){
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    const userid = decodedToken.id;
     let filter = {
       category: this.category,
       day: this.day,
-      type: this.type
+      type: this.type,
+      clientId: userid
     };
     console.log(filter);
     this.clientService.filterAppointments(filter).subscribe((data) => {
@@ -53,14 +57,15 @@ export class BookingComponent {
   }
 
   accept() {
-    if(this.appointmentID == "0"){
+    if(this.appointmentID == "" || this.appointmentID == " " || this.appointmentID == "0")
         return ;
-    }
+
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    const userid = decodedToken.id;
     for (let appointment of this.appointments){
         if (appointment.id == this.appointmentID) {
-          const decodedToken = this.storageService.get('decodedCurrentUser');
           let body = {
-            clientId: decodedToken.id,
+            clientId: userid,
             appointmentId: this.appointmentID,
             firstName: decodedToken.firstName,
             lastName: decodedToken.lastName,
@@ -73,7 +78,7 @@ export class BookingComponent {
               this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
             });
             
-            this.router.navigate(['/client-home-page']);
+           // this.router.navigate(['/client-home-page']);
             return;
         }
     }

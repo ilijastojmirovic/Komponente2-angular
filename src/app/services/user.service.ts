@@ -32,5 +32,9 @@ export class UserService {
   getCategory(): Observable<any> {
     return this.http.get("/api3/category/getCategory");
   }
+
+  cancelAppointment(body: any): Observable<any> {
+    return this.http.post("/api3/appointments/cancelAppointment", body);
+  }
   
 }

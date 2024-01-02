@@ -30,10 +30,13 @@ export class ClientServiceService {
   scheduleTraining(clientAppointmentDto: any): Observable<any> {
     return this.http.put("/api3/appointments/updateClientTrainings", clientAppointmentDto);
   }
-
+  
   filterAppointments(filter: any): Observable<any> {
     return this.http.post("/api3/appointments/filter", filter);
   }
 
+  getClientAppointment(cleintId: any): Observable<any> {
+    return this.http.post("/api3/appointments/getCleintAppointment", cleintId);
+  }
 
 }

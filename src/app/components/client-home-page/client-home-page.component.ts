@@ -34,11 +34,16 @@ export class ClientHomePageComponent {
     this.router.navigate(['/client-editProfile-page']);
   }
 
-  back(){
-    this.router.navigate(['/']);
+  clientsTrainings(){
+    this.router.navigate(['/myTrainings-page']);
   }
 
   toSchedule(){
     this.router.navigate(['/booking']);
   }
+
+  back(){
+    this.router.navigate(['/']);
+  }
+
 }

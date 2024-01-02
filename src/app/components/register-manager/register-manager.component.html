@@ -1,38 +1,36 @@
    
 <main class="container" >
-   <p>Register Manager</p>
-
-    <form >
+   <p style="font-weight: bold;">Register Manager</p>
         <div>
             <label>First Name:</label>
             <input type="text" [(ngModel)]="managerCreateDto.userDto.firstName" name="firstName">
-        </div>
-        <div>
+
             <label>Last Name:</label>
             <input type="text" [(ngModel)]="managerCreateDto.userDto.lastName" name="lastName">
-        </div>
-        <div>
+
             <label>Username:</label>    
             <input type="text" [(ngModel)]="managerCreateDto.userDto.username" name="username">
-        </div>
-        <div>
+
             <label>Password:</label>
             <input type="password" [(ngModel)]="managerCreateDto.userDto.password" name="password">
-        </div>
-        <div>
+
             <label>Email:</label>
             <input type="email" [(ngModel)]="managerCreateDto.userDto.email" name="email">
-        </div>
-        <div>
+
             <label>Date of Birth:</label>
             <input type="date" id="dob" name="dob" [(ngModel)]="managerCreateDto.userDto.dateOfBirth">
+
+            <select class="form-select" [(ngModel)]="hall"  [ngClass]="{'red-border': isInvalidSelection}" name="category">
+                <option value="ignore">Choose hall</option>
+                <option *ngFor="let hall of halls" [value]="hall.name">{{ hall.name | titlecase  }}</option>
+            </select>
         </div>
         <div>   
             <button (click)="onRegister()" class="btn btn-success">Register</button>
             <button (click)="back()" class="btn btn-dark">Back</button>
         </div>
+       
         <div *ngIf="alert" class="alert alert-danger">
             This user is already registered.
         </div>
-    </form>
 </main>

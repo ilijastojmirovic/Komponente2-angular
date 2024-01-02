@@ -6,7 +6,7 @@
         <select class="form-select" [(ngModel)]="category" name="category">
             <option value="ignore">Category</option>
             <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
-          </select>
+        </select>
         <label>Time:</label>
         <input type="text" [(ngModel)]="time" name="time">
         <label>Day:</label>    

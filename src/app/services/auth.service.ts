@@ -29,6 +29,6 @@ export class AuthService {
   }
   
   register_manager(user: any){
-    return this.http.post('/api/manager', user);
+    return this.http.post('/api/manager', user); 
   }
 }

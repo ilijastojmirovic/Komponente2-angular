@@ -3,12 +3,14 @@ import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { StorageService } from '../../Storage/storage.service';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-admin-home-page',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers: [UserService],
+  providers: [UserService, AdminService],
   templateUrl: './admin-home-page.component.html',
   styleUrl: './admin-home-page.component.css'
 })
@@ -18,7 +20,8 @@ export class AdminHomePageComponent {
   managers: any;
   notification: any;
 
-  constructor(private  userService: UserService, private router: Router){}
+  constructor(private  userService: UserService, private router: Router, private storageService: StorageService, private adminService: AdminService ){}
+
 
   showNotifications(){
     this.userService.getNotifications().subscribe((data) => {
@@ -29,13 +32,15 @@ export class AdminHomePageComponent {
 
 
   showClients(){
-    this.userService.showClients().subscribe((data) => {
+    const storedClientData = this.storageService.get('currentUserToken');
+    this.adminService.showClients(storedClientData).subscribe((data) => {
       this.clients = data.content;
     });
   }
 
   showManagers(){
-    this.userService.showManagers().subscribe((data) => {
+    const storedClientData = this.storageService.get('currentUserToken');
+    this.adminService.showManagers(storedClientData).subscribe((data) => {
       this.managers = data.content;
     });  
   }
@@ -46,7 +51,8 @@ export class AdminHomePageComponent {
       email: email1,
       permission: permission1 
     }
-    this.userService.updatePermissionManager(updatePermissionDto).subscribe();
+    const storedClientData = this.storageService.get('currentUserToken');
+    this.adminService.updatePermissionManager(updatePermissionDto, storedClientData).subscribe();
   }
 
   clientPermission(permission1 : any, email1: any, username1: any){
@@ -55,7 +61,8 @@ export class AdminHomePageComponent {
       email: email1,
       permission: permission1 
     }
-    this.userService.updatePermissionClient(updatePermissionDto).subscribe();
+    const storedClientData = this.storageService.get('currentUserToken');
+    this.adminService.updatePermissionClient(updatePermissionDto, storedClientData).subscribe();
   }
 
   back(){

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,20 +10,6 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  showClients() : Observable<any>{
-    return this.http.get("/api/admin/clients");
-  }
-  showManagers() :  Observable<any> {
-    return this.http.get("/api/admin/managers");
-  }
-
-  updatePermissionClient(client : any) : Observable<any> {
-   return this.http.put("/api/admin/clientpermission", client);
-  }
-
-  updatePermissionManager(manager : any) : Observable<any> {
-    return this.http.put("/api/admin/managerpermission", manager);
-  }
 
   getNotifications(): Observable<any> {
     return this.http.get("/api2/notification/allNotifications");
@@ -36,5 +22,10 @@ export class UserService {
   cancelAppointment(body: any): Observable<any> {
     return this.http.post("/api3/appointments/cancelAppointment", body);
   }
+
+  getHalls(): Observable<any> {
+    return this.http.get("/api3/hall/getHalls"); 
+  }
   
 }
+ 

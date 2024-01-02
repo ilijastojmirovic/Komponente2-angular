@@ -1,0 +1,10 @@
+
+select {
+    width: 12%;
+    padding: 4px;
+    margin: 2px;
+}
+
+.red-border {
+    border: 1px solid red;
+  }

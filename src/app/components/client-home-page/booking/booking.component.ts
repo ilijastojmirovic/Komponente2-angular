@@ -30,7 +30,9 @@ export class BookingComponent {
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    const userid = decodedToken.id;
+    let userid = 0;
+    if (decodedToken != null) 
+       userid = decodedToken.id;
     this.clientService.showAppointments(userid).subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);

@@ -3,18 +3,19 @@
     <p></p>
     <div>
         <label>Hall name:</label>
-        <input type="text"  name="firstName">
+        <input type="text" [(ngModel)]="hallName" name="hallName">
     </div>
     <div>
         <label>Description:</label>
-        <input type="text"  name="lastName">
+        <input type="text"  [(ngModel)]="description" name="description">
     </div>
     <div>
         <label>Number of trainers:</label>    
-        <input type="text"  name="username">
+        <input type="text"  [(ngModel)]="numberOfTrainers" name="numberOfTrainers">
     </div>
     <div>
-    <button (click)="back()" class="btn btn-dark">Back</button>
+        <button (click)="save()" class="btn btn-success">Save</button>
+        <button (click)="back()" class="btn btn-dark">Back</button>
     </div>
   </main>
   

@@ -15,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   
   clientCreateDto = {
-    id: null,
+    id: 0,
     uniqueCardNumber: null,
     nubmerOfTrainings: 0,
     userDto: {

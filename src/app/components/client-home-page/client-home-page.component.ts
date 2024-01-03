@@ -43,6 +43,7 @@ export class ClientHomePageComponent {
   }
 
   back(){
+    this.storageService.clear();
     this.router.navigate(['/']);
   }
 

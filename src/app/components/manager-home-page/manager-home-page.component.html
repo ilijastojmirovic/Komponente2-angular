@@ -5,7 +5,36 @@
     <button (click)="newTraining()" class="btn btn-success">New Training</button>
     <button (click)="editHall()" class="btn btn-success">Edit Hall</button>
   </div>
+  <table>
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>Hall</th>
+          <th>Hall description</th>
+          <th>Training category</th>
+          <th>Training type</th>
+          <th>Time</th>
+          <th>Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{appointment.id}}</td>
+        <td>{{appointment.hall | titlecase}}</td>
+        <td>{{appointment.hallDescription  | titlecase}}</td>
+        <td>{{appointment.trainingCategory | titlecase}}</td>
+        <td>{{appointment.trainingType | titlecase}}</td>
+        <td>{{appointment.startTime | titlecase}}</td>
+        <td>{{appointment.day | titlecase}}</td>
+      </tr>
+    </tbody>
+  </table>
   <div>
-    <button (click)="back()" class="btn btn-dark">Back</button>
+    <label for="" style="font-weight: bold;">Enter the training ID you want cancel</label>
+    <input type="text"  [(ngModel)]="appointmentID"  name="appointmentID">
+    <button (click)="accept()" class="btn btn-primary">Accept</button>
+  </div>
+  <div>
+    <button (click)="back()" class="btn btn-dark">Log out</button>
   </div>
 </main>

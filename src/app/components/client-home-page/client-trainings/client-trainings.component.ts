@@ -24,7 +24,10 @@ export class ClientTrainingsComponent {
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    const userid = decodedToken.id;
+    let userid = 0;
+    if (decodedToken != null) 
+       userid = decodedToken.id;
+    else return;
     this.clientService.getClientAppointment(userid).subscribe((data) => {
       console.log(data);
       this.appointments = data;
@@ -49,7 +52,6 @@ export class ClientTrainingsComponent {
           email: decodedToken.email,
           username: decodedToken.username
         };
-        console.log(body);
         this.userService.cancelAppointment(body).subscribe(data =>{
           this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
         });

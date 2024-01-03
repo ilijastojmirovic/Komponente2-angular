@@ -66,6 +66,7 @@ export class AdminHomePageComponent {
   }
 
   back(){
+    this.storageService.clear();
     this.router.navigate(['/']);
   }
 

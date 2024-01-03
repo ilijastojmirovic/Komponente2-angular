@@ -16,7 +16,7 @@ import { UserService } from '../../services/user.service';
 export class RegisterManagerComponent {
 
   managerCreateDto = {
-    id: null,
+    id: 0,
     hallName: "ignore",
     startDate: "1000-02-03",
     userDto: {

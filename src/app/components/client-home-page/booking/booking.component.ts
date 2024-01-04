@@ -19,7 +19,7 @@ export class BookingComponent {
 
   bill = 0
   appointments : any;
-  appointmentID =  " ";
+  appointmentID : number = 0;
 
   category: string = 'ignore';
   day: string = 'ignore';
@@ -34,6 +34,7 @@ export class BookingComponent {
     if (decodedToken != null) 
        userid = decodedToken.id;
     this.clientService.showAppointments(userid).subscribe((data) => {
+      console.log(data);  
       this.appointments = data;
       this.sortByHall(this.appointments);
     });
@@ -59,7 +60,7 @@ export class BookingComponent {
   }
 
   accept() {
-    if(this.appointmentID == "" || this.appointmentID == " " || this.appointmentID == "0")
+    if(this.appointmentID <= 0)
         return ;
 
     const decodedToken = this.storageService.get('decodedCurrentUser');

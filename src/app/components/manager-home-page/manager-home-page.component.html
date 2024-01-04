@@ -1,9 +1,9 @@
 <main class="container" >
-  <p> Manager</p>
+  <p id="Subject"> Home Page</p>
   <p></p>
   <div class="flex-container">
-    <button (click)="newTraining()" class="btn btn-success">New Training</button>
-    <button (click)="editHall()" class="btn btn-success">Edit Hall</button>
+    <button (click)="newTraining()" class="btn btn-primary">New Training</button>
+    <button (click)="editHall()" class="btn btn-primary">Edit Hall</button>
   </div>
   <table>
     <thead>
@@ -27,15 +27,24 @@
         <td>{{appointment.trainingType | titlecase}}</td>
         <td>{{appointment.startTime | titlecase}}</td>
         <td>{{appointment.day | titlecase}}</td>
-        <!-- <td>{{appointment.availability | titlecase}}</td> -->
+        <td>{{appointment.availability.toString() | titlecase}}</td>
       </tr>
     </tbody>
   </table>
-  <div>
-    <label for="" style="font-weight: bold;">Enter the training ID you want cancel</label>
-    <input type="text"  [(ngModel)]="appointmentID"  name="appointmentID">
-    <button (click)="accept()" class="btn btn-primary">Accept</button>
+  <div class="status-row">
+    <label for="" style="font-weight: bold;">Enter the training ID you want to cancel</label>
+    <label for="" style="font-weight: bold;">Enter the training ID you want to allow</label>
   </div>
+  <div class="status-row">
+    <input type="number"  [(ngModel)]="cancelAppointmentID"  name="cancelAppointmentID">
+    <input type="number"  [(ngModel)]="allowAppointmentID"  name="allowAppointmentID">
+  </div>
+  
+  <div class="status-row">
+    <button (click)="cancel()" class="btn btn-danger">Cancel</button>
+    <button (click)="allow()" class="btn btn-success">Allow</button>
+  </div>
+  
   <div>
     <button (click)="back()" class="btn btn-dark">Log out</button>
   </div>

@@ -1,5 +1,5 @@
 <main class="container" >
-  <p>Schedule a training</p>
+  <p id="Subject">Schedule a training</p>
   <form>
     <div class="flex-container">
     <select class="form-select" [(ngModel)]="category" name="category">
@@ -33,6 +33,7 @@
             <th>Training type</th>
             <th>Time</th>
             <th>Day</th>
+            <th>Day</th>
         </tr>
       </thead>
       <tbody>
@@ -44,13 +45,14 @@
           <td>{{appointment.trainingType | titlecase}}</td>
           <td>{{appointment.startTime | titlecase}}</td>
           <td>{{appointment.day | titlecase}}</td>
+          <td>{{appointment.availability | titlecase}}</td>
         </tr>
       </tbody>
     </table>
     <div></div>
     <div>
       <label for="" style="font-weight: bold;">Enter the training ID you want to schedule</label>
-      <input type="text" [(ngModel)]="appointmentID" name="appointmentID">
+      <input type="number" [(ngModel)]="appointmentID" name="appointmentID">
       <button (click)="accept()" class="btn btn-primary">Accept</button>
     </div>
 

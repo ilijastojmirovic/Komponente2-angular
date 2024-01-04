@@ -21,7 +21,8 @@ export class ManagerHomePageComponent {
 
   
   appointments : any;
-  appointmentID =  " ";
+  cancelAppointmentID : number = 0;
+  allowAppointmentID : number = 0;
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
@@ -33,6 +34,7 @@ export class ManagerHomePageComponent {
       this.router.navigate(['/']);
     let hall = decodedToken.hallName;
     this.managerService.showAppointments(hall).subscribe((data) => {
+      console.log(data);
       this.appointments = data;
     });
   }
@@ -44,19 +46,16 @@ export class ManagerHomePageComponent {
     this.router.navigate(['/newTraining-page']);
   }
 
-  accept() {
-    if(this.appointmentID == "" || this.appointmentID == " " || this.appointmentID == "0")
-      return ;
+  cancel() {
+    if(this.cancelAppointmentID <= 0)    return ;
 
-
-    
     const decodedToken = this.storageService.get('decodedCurrentUser');
     const userid = decodedToken.id;
     for (let appointment of this.appointments){
-      if (appointment.id == this.appointmentID) {
+      if (appointment.id == this.cancelAppointmentID) {
         let body = {
           clientId: userid,
-          appointmentId: this.appointmentID,
+          appointmentId: this.cancelAppointmentID,
           firstName: decodedToken.firstName,
           lastName: decodedToken.lastName,
           email: decodedToken.email,
@@ -71,6 +70,9 @@ export class ManagerHomePageComponent {
         return;
       }
     }
+  }
+
+  allow() {
   }
 
   back(){

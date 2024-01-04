@@ -1,5 +1,7 @@
-table{
-  width: 100%;
+
+table {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 thead {
   margin: 5px;
@@ -11,4 +13,17 @@ th, td {
   padding-left: 5px;
   padding-right: 5px;
   vertical-align: middle;
+}
+
+.status-row {
+  display: flex; 
+  justify-content: space-around; /* ili 'space-between' za veći razmak */
+  align-items: center;
+  margin-bottom: 10px; /* Dodaje razmak između redova */
+}
+.status-row > * {
+  margin-right: 10px; /* Dodaje razmak između elemenata unutar reda */
+}
+.status-row label {
+  font-weight: bold;
 }

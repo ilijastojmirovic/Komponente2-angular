@@ -6,6 +6,12 @@ body {
     background-size: cover;
 }
 
+table{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
 main.container {
     display: block;
     background-color: rgba(219, 197, 150, 0.993);
@@ -13,6 +19,13 @@ main.container {
     border: 0px solid black;
     margin-top: 150px;
 }
+
+#Subject{
+    padding-top: 15px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 22px;
+  }
 
 button {
     margin: 7px;

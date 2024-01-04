@@ -65,7 +65,7 @@ export class RegisterManagerComponent {
   }
   
   back(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/admin-home-page']);
   }
 
 

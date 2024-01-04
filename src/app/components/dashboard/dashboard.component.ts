@@ -15,25 +15,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class DashboardComponent{
 
-  selectedRole: any;
-
   constructor(private authservice : AuthService, private router: Router){}
 
   goToLoginComponent() {
     this.router.navigate(['/login']);
   }
 
-  setSelectedRole(role: string): void {
-    this.selectedRole = role;
-  }
-
   goToRegisterComponent() {
-    if (this.selectedRole === 'manager') {
-      this.router.navigate(['/register-manager']);
-    } else if (this.selectedRole === 'client') {
-      this.router.navigate(['/register']);
-    }
+    this.router.navigate(['/register']);
   }
+  
 }
 
 

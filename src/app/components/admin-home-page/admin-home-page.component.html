@@ -1,108 +1,109 @@
-
 <main class="container">
     <p id="Subject">Home Page</p>
-    <p></p>
-    <form>
-        <div>
-            <table id="tableE"> 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Hall Name</th>
-                        <th>Permission</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let manager of managers">
-                        <td>{{ manager.id}}</td>
-                        <td>{{ manager.username }}</td>
-                        <td>{{ manager.email }}</td>
-                        <td>{{ manager.firstName }}</td>
-                        <td>{{ manager.lastName }}</td>
-                        <td>{{ manager.hallName }}</td>
-                        <td>
-                          <button (click)="managerPermission(true, manager.email, manager.username)" class="btn btn-success" id="on">On</button>
-                          <button (click)="managerPermission(false, manager.email, manager.username)" class="btn btn-danger" id="off">Off</button>
-                        </td>
-                </tbody>
-                
-            </table>
-            <div>
-                <button (click)="showManagers()" class="btn btn-primary">Show Managers</button>
-            </div>
-        </div>
-        <div>
-            <table id="tableE">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Card Number</th>
-                        <th>nubmerOfTrainings</th>
-                        <th>Permission</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let client of clients">
-                        <td>{{client.id}}</td>
-                        <td>{{client.username}}</td>
-                        <td>{{client.email}}</td>
-                        <td>{{client.firstName}}</td>
-                        <td>{{client.lastName}}</td>
-                        <td>{{client.uniqueCardNumber}}</td>
-                        <td>{{client.nubmerOfTrainings}}</td>
-                        <td>
-                            <button (click)="clientPermission(true, client.email, client.username)" class="btn btn-success" id="on">On</button>
-                            <button (click)="clientPermission(false, client.email, client.username)" class="btn btn-danger" id="off">Off</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <button (click)="showClients()" class="btn btn-primary">Show Clients</button>
-            </div>
-        </div>
-        <div>
-            <table id="tableE"> 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Link</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let notification of notification">
-                      <td>{{notification.id}}</td>
-                      <td>{{notification.username}}</td>
-                      <td>{{notification.firstName}}</td>
-                      <td>{{notification.lastName}}</td>
-                      <td>{{notification.email}}</td>
-                      <td>{{notification.link}}</td>
-                      <td>{{notification.notificationType}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <button (click)="showNotifications()" class="btn btn-primary">Show Notifications</button>
-            </div>
-        </div>
-        <div>
-            <button (click)="back()" class="btn btn-dark">Log out</button>
-        </div>
-        
-    </form>
+    <div class="flex-container">
+        <button  (click) = goToRegisterComponent() class="btn btn-success">Register manager</button>
+    </div>
+    <table id="tableE">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Hall Name</th>
+                <th>Permission</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let manager of managers">
+                <td>{{ manager.id}}</td>
+                <td>{{ manager.username }}</td>
+                <td>{{ manager.email }}</td>
+                <td>{{ manager.firstName }}</td>
+                <td>{{ manager.lastName }}</td>
+                <td>{{ manager.hallName }}</td>
+                <td>
+                    <button
+                        (click)="managerPermission(true, manager.email, manager.username)"
+                        class="btn btn-success" id="on">On</button>
+                    <button
+                        (click)="managerPermission(false, manager.email, manager.username)"
+                        class="btn btn-danger" id="off">Off</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="showManagers()" class="btn btn-primary">Show
+            Managers</button>
+    </div>
+    <table id="tableE">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Card Number</th>
+                <th>nubmerOfTrainings</th>
+                <th>Permission</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients">
+                <td>{{client.id}}</td>
+                <td>{{client.username}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td>{{client.uniqueCardNumber}}</td>
+                <td>{{client.nubmerOfTrainings}}</td>
+                <td>
+                    <button
+                        (click)="clientPermission(true, client.email, client.username)"
+                        class="btn btn-success" id="on">On</button>
+                    <button
+                        (click)="clientPermission(false, client.email, client.username)"
+                        class="btn btn-danger" id="off">Off</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="showClients()" class="btn btn-primary">Show
+            Clients</button>
+    </div>
+    <table id="tableE">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Link</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let notification of notification">
+                <td>{{notification.id}}</td>
+                <td>{{notification.username}}</td>
+                <td>{{notification.firstName}}</td>
+                <td>{{notification.lastName}}</td>
+                <td>{{notification.email}}</td>
+                <td>{{notification.link}}</td>
+                <td>{{notification.notificationType}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button (click)="showNotifications()"
+            class="btn btn-primary">Show Notifications</button>
+    </div>
+    <div>
+        <button (click)="back()" class="btn btn-dark">Log out</button>
+    </div>
 </main>
-
-

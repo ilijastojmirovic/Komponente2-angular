@@ -32,6 +32,10 @@ export class AdminHomePageComponent {
       this.router.navigate(['/']);
   }
 
+  goToRegisterComponent() {
+      this.router.navigate(['/register-manager']);
+  }
+
   showNotifications(){
     this.userService.getNotifications().subscribe((data) => {
       this.notification = data.content;

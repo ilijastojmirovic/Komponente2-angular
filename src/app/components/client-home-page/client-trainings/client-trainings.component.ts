@@ -18,16 +18,15 @@ import { UserService } from '../../../services/user.service';
 export class ClientTrainingsComponent {
 
   appointments : any;
-  appointmentID: any;
+  appointmentID: number = 0;
 
   constructor( private router: Router, private clientService: ClientServiceService, private storageService: StorageService, private userService: UserService){}
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    let userid = 0;
-    if (decodedToken != null) 
-       userid = decodedToken.id;
-    else return;
+    if (decodedToken == null)      return;
+    let  userid = decodedToken.id;
+
     this.clientService.getClientAppointment(userid).subscribe((data) => {
       console.log(data);
       this.appointments = data;
@@ -37,10 +36,10 @@ export class ClientTrainingsComponent {
 
 
   accept() {
-    if(this.appointmentID == "" || this.appointmentID == " " || this.appointmentID == "0")
-      return ;
+    if(this.appointmentID <= 0)    return ;
     
     const decodedToken = this.storageService.get('decodedCurrentUser');
+    if (decodedToken == null)      return;
     const userid = decodedToken.id;
     for (let appointment of this.appointments){
       if (appointment.id == this.appointmentID) {
@@ -56,7 +55,7 @@ export class ClientTrainingsComponent {
           this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
         });
         
-     // this.router.navigate(['/client-home-page']);
+        this.router.navigate(['/client-home-page']);
         return;
       }
     }

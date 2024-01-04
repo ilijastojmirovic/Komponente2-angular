@@ -19,19 +19,22 @@ export class ManagerService {
   }
 
   saveHallChanges(editHall : any): Observable<any>{
-    return this.http.put("/api3/hall/editHall", editHall, { headers: this.header()});
+    return this.http.put("/api3/hall/editHall", editHall);
   }
 
   newAppointment(body : any): Observable<any>{
-    console.log(body);
     return this.http.post("/api3/appointments/newAppointment", body);
   }
 
   showAppointments(hallName : any): Observable<any>{
-    return this.http.get("/api3/appointments/"+ hallName, { headers: this.header()});
+    return this.http.get("/api3/appointments/" + hallName);
   }
-
+  
+  allowAppointmentID(body: any): Observable<any> {
+    return this.http.post("/api3/appointments/managerAllowAppointment", body);
+  }
+  
   cancelAppointment(body: any): Observable<any> {
-    return this.http.post("/api3/appointments/managerCancelAppointment", body, { headers: this.header()});
+    return this.http.post("/api3/appointments/managerCancelAppointment", body);
   }
 }

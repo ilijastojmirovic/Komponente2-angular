@@ -15,10 +15,7 @@ th, td {
     padding-right: 5px;
     vertical-align: middle;
 }
-#Subject{
-    font-weight: bold;
-    font-size: 25px;
-}
+
 .flex-container {
     display: flex;
     align-items: center;

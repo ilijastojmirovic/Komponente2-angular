@@ -3,10 +3,12 @@
     <p></p>
     <div>
         <label>Category:</label>
+        <div id="SelectCategory">
             <select class="form-select" [(ngModel)]="category" name="category">
                 <option value="ignore">Category</option>
                 <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
             </select>
+        </div>
         <label>Time:</label>
             <input type="time" [(ngModel)]="time" name="time">
         <label>Day:</label>

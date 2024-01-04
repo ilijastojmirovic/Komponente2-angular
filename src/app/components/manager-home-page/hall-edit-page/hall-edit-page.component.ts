@@ -28,7 +28,7 @@ export class HallEditPageComponent {
       this.router.navigate(['/']);
       return;
     }
-    if (decodedToken.rola != "Manager" || decodedToken.rola != "Admin") 
+    if (decodedToken.rola != "Manager") 
       this.router.navigate(['/']);
   }
 

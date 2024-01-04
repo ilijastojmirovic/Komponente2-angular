@@ -7,4 +7,9 @@ select {
 
 .red-border {
     border: 1px solid red;
-  }
+}
+
+#SelectHall{
+    display: flex; 
+    justify-content: center; /* ili 'space-between' za veći razmak */
+}

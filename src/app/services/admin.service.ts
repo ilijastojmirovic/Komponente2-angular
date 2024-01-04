@@ -20,12 +20,11 @@ export class AdminService {
   }
 
   showClients() : Observable<any>{
-    console.log(this.header());
-    return this.http.post("/api/admin/clients", {}, { headers: this.header()});
+    return this.http.get("/api/admin/clients", { headers: this.header()});
   }
 
   showManagers() :  Observable<any> {
-    return this.http.get("/api/admin/managers",{ headers: this.header()});
+    return this.http.get("/api/admin/managers",  { headers: this.header()});
   }
 
   updatePermissionClient(client : any) : Observable<any> {

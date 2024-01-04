@@ -34,7 +34,6 @@ export class BookingComponent {
     if (decodedToken != null) 
        userid = decodedToken.id;
     this.clientService.showAppointments(userid).subscribe((data) => {
-      console.log(data);  
       this.appointments = data;
       this.sortByHall(this.appointments);
     });
@@ -45,6 +44,7 @@ export class BookingComponent {
  
   filter(){
     const decodedToken = this.storageService.get('decodedCurrentUser');
+    if (decodedToken == null)      return;
     const userid = decodedToken.id;
     let filter = {
       category: this.category,
@@ -52,7 +52,6 @@ export class BookingComponent {
       type: this.type,
       clientId: userid
     };
-    console.log(filter);
     this.clientService.filterAppointments(filter).subscribe((data) => {
       this.appointments = data;
       this.sortByHall(this.appointments);
@@ -60,10 +59,10 @@ export class BookingComponent {
   }
 
   accept() {
-    if(this.appointmentID <= 0)
-        return ;
+    if(this.appointmentID <= 0)       return ;
 
     const decodedToken = this.storageService.get('decodedCurrentUser');
+    if (decodedToken == null)      return;
     const userid = decodedToken.id;
     for (let appointment of this.appointments){
         if (appointment.id == this.appointmentID) {
@@ -75,20 +74,20 @@ export class BookingComponent {
             email: decodedToken.email,
             username: decodedToken.username
           };
-          console.log(body);
-            this.clientService.scheduleTraining(body).subscribe( data =>{
-              console.log(data);
-              this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
-            });
+
+          this.clientService.scheduleTraining(body).subscribe( data =>{
+            console.log(data);
+            this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
+          });
             
-           // this.router.navigate(['/client-home-page']);
-            return;
+          this.router.navigate(['/client-home-page']);
+          return;
         }
     }
     console.error('Appointment not found');
   }
 
-  sortByHall(appointments: any[]): void { //booking.component //client-home-page.component
+  sortByHall(appointments: any[]): void {
     appointments.sort((a, b) => {
       if (a.hall < b.hall)
         return -1;

@@ -48,13 +48,12 @@ export class ManagerHomePageComponent {
 
   cancel() {
     if(this.cancelAppointmentID <= 0)    return ;
-
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    const userid = decodedToken.id;
+    const managerid = decodedToken.id;
     for (let appointment of this.appointments){
       if (appointment.id == this.cancelAppointmentID) {
         let body = {
-          clientId: userid,
+          clientId: managerid,
           appointmentId: this.cancelAppointmentID,
           firstName: decodedToken.firstName,
           lastName: decodedToken.lastName,
@@ -62,17 +61,34 @@ export class ManagerHomePageComponent {
           username: decodedToken.username
         };
         console.log(body);
-        this.managerService.cancelAppointment(body).subscribe(data =>{
-          this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
-        });
+        this.managerService.cancelAppointment(body).subscribe();
         
-     // this.router.navigate(['/client-home-page']);
+       this.router.navigate(['/manager-home-page']);
         return;
       }
     }
   }
 
   allow() {
+    if(this.allowAppointmentID <= 0)    return ;
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    const managerid = decodedToken.id;
+    for (let appointment of this.appointments){
+      if (appointment.id == this.allowAppointmentID) {
+        let body = {
+          clientId: managerid,
+          appointmentId: this.allowAppointmentID,
+          firstName: decodedToken.firstName,
+          lastName: decodedToken.lastName,
+          email: decodedToken.email,
+          username: decodedToken.username
+        };
+        console.log(body);
+      this.managerService.allowAppointmentID(body).subscribe(); 
+      this.router.navigate(['/manager-home-page']);
+      return;
+      }
+    }
   }
 
   back(){

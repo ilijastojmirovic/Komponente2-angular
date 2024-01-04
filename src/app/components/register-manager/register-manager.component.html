@@ -19,11 +19,15 @@
 
             <label>Date of Birth:</label>
             <input type="date" id="dob" name="dob" [(ngModel)]="managerCreateDto.userDto.dateOfBirth">
-
-            <select class="form-select" [(ngModel)]="hall"  [ngClass]="{'red-border': isInvalidSelection}" name="category">
-                <option value="ignore">Choose hall</option>
-                <option *ngFor="let hall of halls" [value]="hall.name">{{ hall.name | titlecase  }}</option>
-            </select>
+            
+            <label>Halls:</label>
+            <div id="SelectHall">
+                <select class="form-select" [(ngModel)]="hall"  [ngClass]="{'red-border': isInvalidSelection}" name="category">
+                    <option value="ignore">Choose hall</option>
+                    <option *ngFor="let hall of halls" [value]="hall.name">{{ hall.name | titlecase  }}</option>
+                </select>
+            </div>
+            
         </div>
         <div>   
             <button (click)="onRegister()" class="btn btn-success">Register</button>

@@ -3,9 +3,9 @@ width: 1000px;
 }
 
 select {
-width: 12%;
-padding: 4px;
-margin: 2px;
+    width: 12%;
+    padding: 4px;
+    margin: 2px;
 }
 
 body {
@@ -16,10 +16,9 @@ body {
     height: 100vh; /* visina viewport-a */
     margin: 0; /* uklanja defaultni margin */
 }
-
-#Subject{
-    font-weight: bold;
-    font-size: 23px;
+#SelectCategory{
+    display: flex; 
+    justify-content: center; /* ili 'space-between' za veći razmak */
 }
 
 label{

@@ -25,7 +25,6 @@
                         <td>{{ manager.lastName }}</td>
                         <td>{{ manager.hallName }}</td>
                         <td>
-                          <!-- Ovde možete dodati akcione dugmiće -->
                           <button (click)="managerPermission(true, manager.email, manager.username)" class="btn btn-success" id="on">On</button>
                           <button (click)="managerPermission(false, manager.email, manager.username)" class="btn btn-danger" id="off">Off</button>
                         </td>

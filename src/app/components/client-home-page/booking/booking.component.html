@@ -33,7 +33,6 @@
             <th>Training type</th>
             <th>Time</th>
             <th>Day</th>
-            <th>Day</th>
         </tr>
       </thead>
       <tbody>
@@ -45,13 +44,12 @@
           <td>{{appointment.trainingType | titlecase}}</td>
           <td>{{appointment.startTime | titlecase}}</td>
           <td>{{appointment.day | titlecase}}</td>
-          <td>{{appointment.availability | titlecase}}</td>
         </tr>
       </tbody>
     </table>
     <div></div>
     <div>
-      <label for="" style="font-weight: bold;">Enter the training ID you want to schedule</label>
+      <label id="Subject2">Enter the training ID you want to schedule</label>
       <input type="number" [(ngModel)]="appointmentID" name="appointmentID">
       <button (click)="accept()" class="btn btn-primary">Accept</button>
     </div>

@@ -76,7 +76,6 @@ export class BookingComponent {
           };
 
           this.clientService.scheduleTraining(body).subscribe( data =>{
-            console.log(data);
             this.storageService.save('clientBill', this.storageService.get('clientBill') + data);
           });
             

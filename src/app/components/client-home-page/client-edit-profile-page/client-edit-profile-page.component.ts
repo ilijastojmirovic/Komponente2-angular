@@ -56,7 +56,6 @@ export class ClientEditProfilePageComponent {
       password: this.updatePasswordDto1.password,
       token: storedClientData
     }
-    console.log(updatePasswordDto);
       this.clientService.changePassword(updatePasswordDto).subscribe();
     this.alert = false;
   }
@@ -69,7 +68,6 @@ export class ClientEditProfilePageComponent {
       storedClientData.firstName = this.updateClientDto.userDto.firstName;
       storedClientData.lastName = this.updateClientDto.userDto.lastName;
       this.storageService.save('decodedCurrentUser', storedClientData);
-      console.log(this.storageService.get('decodedCurrentUser'));  
   }
 
   back(){

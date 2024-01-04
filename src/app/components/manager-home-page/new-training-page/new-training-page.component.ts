@@ -50,8 +50,7 @@ export class NewTrainingPageComponent {
       "managerId": decodedToken.id,
     }
     this.managerService.newAppointment(body).subscribe((data) => {
-      console.log(data);
-      // this.router.navigate(['/manager-home-page']);
+      this.router.navigate(['/manager-home-page']);
     });
   }
 

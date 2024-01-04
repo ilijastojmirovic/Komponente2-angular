@@ -49,7 +49,6 @@ export class RegisterManagerComponent {
       this.isInvalidSelection = true;
       return;
     }
-    console.log(this.managerCreateDto);
     this.authService.register_manager(this.managerCreateDto).subscribe({
       next: (result) => {
         if(result == null){

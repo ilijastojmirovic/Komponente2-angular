@@ -13,42 +13,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent{
 
-  testA: any;
   selectedRole: any;
 
-  constructor(private authservice : AuthService, private router: Router){
-    
-  }
-  
-  admin(){
-    this.router.navigate(['/admin-home-page']);
-  }
-
-  client(){
-    this.router.navigate(['/client-home-page']);
-  }
-
-  manager(){
-    this.router.navigate(['/manager-home-page']);
-  }
-
-
-  
-  ngOnInit(): void {  
-    //this.authservice.test().subscribe((data) => {this.handleData(data)});  
-  }
-
-  handleData(result: any) {
-    this.testA = result;
-    console.log(result);
-  }
-
-
-  testB() {
-    console.log("TESTB");
-  }
+  constructor(private authservice : AuthService, private router: Router){}
 
   goToLoginComponent() {
     this.router.navigate(['/login']);
@@ -60,11 +29,24 @@ export class DashboardComponent implements OnInit {
 
   goToRegisterComponent() {
     if (this.selectedRole === 'manager') {
-      // Navigate to Manager Registration
       this.router.navigate(['/register-manager']);
     } else if (this.selectedRole === 'client') {
-      // Navigate to Client Registration
       this.router.navigate(['/register']);
     }
   }
 }
+
+
+
+
+// admin(){
+//   this.router.navigate(['/admin-home-page']);
+// }
+
+// client(){
+//   this.router.navigate(['/client-home-page']);
+// }
+
+// manager(){
+//   this.router.navigate(['/manager-home-page']);
+// }

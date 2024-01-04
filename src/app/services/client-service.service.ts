@@ -18,7 +18,6 @@ export class ClientServiceService {
   }
 
   showNotifications(username: string): Observable<any> {
-    console.log(username);
     return this.http.get(`/api2/notification/${username}`);
   }
 

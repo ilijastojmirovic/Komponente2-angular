@@ -34,7 +34,6 @@ export class LoginComponent {
     this.authService.login(this.loginInfo).subscribe((data) => {
       this.storageService.save('clientBill', 0);
       const decodedToken = this.storageService.get('decodedCurrentUser');
-      console.log(decodedToken);
       if (decodedToken && decodedToken.uniqueCardNumber) 
         this.goToClientPage();
       else if (decodedToken && decodedToken.hallName)

@@ -28,7 +28,6 @@ export class ClientTrainingsComponent {
     let  userid = decodedToken.id;
 
     this.clientService.getClientAppointment(userid).subscribe((data) => {
-      console.log(data);
       this.appointments = data;
       this.sortByHall(this.appointments);
     });

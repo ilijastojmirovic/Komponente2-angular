@@ -2,8 +2,9 @@
 /* General Styles */
 body {
     text-align: center;
-    background: url("../123.png");
+    background: url("../123.png") no-repeat fixed center;
     background-size: cover;
+    padding-bottom: 10%;
 }
 
 table{
@@ -21,6 +22,7 @@ main.container {
 }
 
 #Subject{
+    font-style: italic;
     padding-top: 15px;
     padding-bottom: 20px;
     font-weight: bold;

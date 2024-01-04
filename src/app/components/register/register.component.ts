@@ -40,7 +40,6 @@ export class RegisterComponent {
           this.alert = true;
           console.log("Vec postoji");
         }
-        console.log(result);
         this.alert = false;
         this.router.navigate(['/']);
       },

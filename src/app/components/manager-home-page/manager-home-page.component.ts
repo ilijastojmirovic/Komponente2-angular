@@ -34,7 +34,6 @@ export class ManagerHomePageComponent {
       this.router.navigate(['/']);
     let hall = decodedToken.hallName;
     this.managerService.showAppointments(hall).subscribe((data) => {
-      console.log(data);
       this.appointments = data;
     });
   }
@@ -60,7 +59,6 @@ export class ManagerHomePageComponent {
           email: decodedToken.email,
           username: decodedToken.username
         };
-        console.log(body);
         this.managerService.cancelAppointment(body).subscribe();
         
        this.router.navigate(['/manager-home-page']);
@@ -83,7 +81,6 @@ export class ManagerHomePageComponent {
           email: decodedToken.email,
           username: decodedToken.username
         };
-        console.log(body);
       this.managerService.allowAppointmentID(body).subscribe(); 
       this.router.navigate(['/manager-home-page']);
       return;

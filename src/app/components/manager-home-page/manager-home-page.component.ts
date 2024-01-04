@@ -25,10 +25,13 @@ export class ManagerHomePageComponent {
 
   ngOnInit(): void {
     const decodedToken = this.storageService.get('decodedCurrentUser');
-    let hall = "";
-    if (decodedToken != null) 
-      hall = decodedToken.hallName;
-    else return;
+    if (decodedToken == null) {
+      this.router.navigate(['/']);
+      return;
+    }
+    if (decodedToken.rola != "Manager") 
+      this.router.navigate(['/']);
+    let hall = decodedToken.hallName;
     this.managerService.showAppointments(hall).subscribe((data) => {
       this.appointments = data;
     });

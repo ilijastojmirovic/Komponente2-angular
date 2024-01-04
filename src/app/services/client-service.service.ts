@@ -9,7 +9,6 @@ export class ClientServiceService {
 
   constructor(private http: HttpClient) {}
 
-
   changePassword(user : any): Observable<any>{
     return this.http.put("/api/client/updatepassword", user);
   }

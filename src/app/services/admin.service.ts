@@ -8,30 +8,35 @@ import { StorageService } from '../Storage/storage.service';
 })
 export class AdminService {
 
+
   constructor(private http: HttpClient, private storageService: StorageService) {}
 
-
-  showClients(token: any) : Observable<any>{
+  header() : any {
+    const token = this.storageService.get('currentUserToken');
     const headers = new HttpHeaders({
-      'Authorization': token
+      'Authorization': 'Bearer ' + token
     });
-    const pageable = {
-      page: 1, 
-      size: 100 
-    };
-    return this.http.post("/api/admin/clients", pageable, { headers });
+    return headers;
   }
 
-  showManagers(token: any) :  Observable<any> {
-    return this.http.get("/api/admin/managers");
+  showClients() : Observable<any>{
+    console.log(this.header());
+    return this.http.post("/api/admin/clients", {}, { headers: this.header()});
   }
 
-  updatePermissionClient(client : any, token: any) : Observable<any> {
-   return this.http.put("/api/admin/clientpermission", client);
+  showManagers() :  Observable<any> {
+    return this.http.get("/api/admin/managers",{ headers: this.header()});
   }
 
-  updatePermissionManager(manager : any, token: any) : Observable<any> {
-    return this.http.put("/api/admin/managerpermission",  manager);
+  updatePermissionClient(client : any) : Observable<any> {
+   return this.http.put("/api/admin/clientpermission", client, { headers: this.header()});
   }
+
+  updatePermissionManager(manager : any) : Observable<any> {
+    return this.http.put("/api/admin/managerpermission",  manager, { headers: this.header()});
+  }
+
+
+  
   
 }

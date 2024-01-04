@@ -16,3 +16,12 @@ body {
     height: 100vh; /* visina viewport-a */
     margin: 0; /* uklanja defaultni margin */
 }
+
+#Subject{
+    font-weight: bold;
+    font-size: 23px;
+}
+
+label{
+    font-size: 18px;
+}

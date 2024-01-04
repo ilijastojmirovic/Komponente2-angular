@@ -22,25 +22,31 @@ export class AdminHomePageComponent {
 
   constructor(private  userService: UserService, private router: Router, private storageService: StorageService, private adminService: AdminService ){}
 
+  ngOnInit(): void {
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    if (decodedToken == null) {
+      this.router.navigate(['/']);
+      return;
+    }
+    if (decodedToken.rola != "Admin") 
+      this.router.navigate(['/']);
+  }
 
   showNotifications(){
     this.userService.getNotifications().subscribe((data) => {
-      console.log(data);
       this.notification = data.content;
     })
   }
 
 
   showClients(){
-    const storedClientData = this.storageService.get('currentUserToken');
-    this.adminService.showClients(storedClientData).subscribe((data) => {
+    this.adminService.showClients().subscribe((data) => {
       this.clients = data.content;
     });
   }
 
   showManagers(){
-    const storedClientData = this.storageService.get('currentUserToken');
-    this.adminService.showManagers(storedClientData).subscribe((data) => {
+    this.adminService.showManagers().subscribe((data) => {
       this.managers = data.content;
     });  
   }
@@ -51,8 +57,7 @@ export class AdminHomePageComponent {
       email: email1,
       permission: permission1 
     }
-    const storedClientData = this.storageService.get('currentUserToken');
-    this.adminService.updatePermissionManager(updatePermissionDto, storedClientData).subscribe();
+    this.adminService.updatePermissionManager(updatePermissionDto).subscribe();
   }
 
   clientPermission(permission1 : any, email1: any, username1: any){
@@ -61,8 +66,7 @@ export class AdminHomePageComponent {
       email: email1,
       permission: permission1 
     }
-    const storedClientData = this.storageService.get('currentUserToken');
-    this.adminService.updatePermissionClient(updatePermissionDto, storedClientData).subscribe();
+    this.adminService.updatePermissionClient(updatePermissionDto).subscribe();
   }
 
   back(){

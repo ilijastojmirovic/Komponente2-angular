@@ -1,16 +1,25 @@
 <main class="container" >
-    <p> Manager</p>
+    <p id="Subject"> Make new apppointment</p>
     <p></p>
     <div>
         <label>Category:</label>
-        <select class="form-select" [(ngModel)]="category" name="category">
-            <option value="ignore">Category</option>
-            <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
-        </select>
+            <select class="form-select" [(ngModel)]="category" name="category">
+                <option value="ignore">Category</option>
+                <option *ngFor="let category of categorys" [value]="category.category">{{ category.category | titlecase  }}</option>
+            </select>
         <label>Time:</label>
-        <input type="text" [(ngModel)]="time" name="time">
-        <label>Day:</label>    
-        <input type="text" [(ngModel)]="day" name="day">
+            <input type="time" [(ngModel)]="time" name="time">
+        <label>Day:</label>
+            <select [(ngModel)]="day" name="day">
+                <option value="ignore">Day of week</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
     </div>
     <div>
         <button (click)="addNewTraining()" class="btn btn-primary">Add</button>

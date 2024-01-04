@@ -21,7 +21,16 @@ export class HallEditPageComponent {
   hallName: any;
   description: any;
   numberOfTrainers: any;
-
+  
+  ngOnInit(): void {
+    const decodedToken = this.storageService.get('decodedCurrentUser');
+    if (decodedToken == null) {
+      this.router.navigate(['/']);
+      return;
+    }
+    if (decodedToken.rola != "Manager" || decodedToken.rola != "Admin") 
+      this.router.navigate(['/']);
+  }
 
   save(){
     const decodedToken = this.storageService.get('decodedCurrentUser');
